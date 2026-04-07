@@ -1,0 +1,43 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.872446+00:00",
+  "model": "HealthResponse",
+  "schema": {
+    "properties": {
+      "status": {
+        "description": "Health status value.",
+        "title": "Status",
+        "type": "string"
+      },
+      "project_root": {
+        "description": "Resolved local project root.",
+        "title": "Project Root",
+        "type": "string"
+      },
+      "marts_ready": {
+        "description": "Whether required mart files are present.",
+        "title": "Marts Ready",
+        "type": "boolean"
+      },
+      "views_ready": {
+        "description": "Whether required mobile view files are present.",
+        "title": "Views Ready",
+        "type": "boolean"
+      },
+      "timestamp_utc": {
+        "description": "Response timestamp in UTC.",
+        "format": "date-time",
+        "title": "Timestamp Utc",
+        "type": "string"
+      }
+    },
+    "required": [
+      "status",
+      "project_root",
+      "marts_ready",
+      "views_ready",
+      "timestamp_utc"
+    ],
+    "title": "HealthResponse",
+    "type": "object"
+  }
+}

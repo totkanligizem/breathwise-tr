@@ -1,0 +1,126 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.876854+00:00",
+  "supported_locales": [
+    "tr-TR",
+    "en-US"
+  ],
+  "default_locale": "tr-TR",
+  "fallback_locale": "en-US",
+  "translation_keys": {
+    "aq.category.good": {
+      "tr-TR": "İyi",
+      "en-US": "Good"
+    },
+    "aq.category.fair": {
+      "tr-TR": "Orta",
+      "en-US": "Fair"
+    },
+    "aq.category.moderate": {
+      "tr-TR": "Hassas Gruplar İçin Orta",
+      "en-US": "Moderate"
+    },
+    "aq.category.poor": {
+      "tr-TR": "Kötü",
+      "en-US": "Poor"
+    },
+    "aq.category.very_poor": {
+      "tr-TR": "Çok Kötü",
+      "en-US": "Very Poor"
+    },
+    "aq.category.extremely_poor": {
+      "tr-TR": "Aşırı Kötü",
+      "en-US": "Extremely Poor"
+    },
+    "ui.city.current.title": {
+      "tr-TR": "Güncel Durum",
+      "en-US": "Current Conditions"
+    },
+    "ui.city.timeline.title": {
+      "tr-TR": "Saatlik Zaman Çizelgesi",
+      "en-US": "Hourly Timeline"
+    },
+    "ui.province.map.title": {
+      "tr-TR": "İl Harita Metrikleri",
+      "en-US": "Province Map Metrics"
+    },
+    "ui.forecast.reliability.title": {
+      "tr-TR": "Tahmin Güvenilirliği",
+      "en-US": "Forecast Reliability"
+    },
+    "ui.common.updated_at": {
+      "tr-TR": "Güncellenme Zamanı",
+      "en-US": "Updated At"
+    },
+    "alert.aq.clear": {
+      "tr-TR": "AQ Uyarısı Yok",
+      "en-US": "No AQ Alert"
+    },
+    "alert.aq.warning": {
+      "tr-TR": "AQ Uyarısı",
+      "en-US": "AQ Alert"
+    },
+    "alert.heat.clear": {
+      "tr-TR": "Sıcaklık Uyarısı Yok",
+      "en-US": "No Heat Alert"
+    },
+    "alert.heat.warning": {
+      "tr-TR": "Sıcaklık Uyarısı",
+      "en-US": "Heat Alert"
+    },
+    "ui.nav.city_overview": {
+      "tr-TR": "Şehir Özeti",
+      "en-US": "City Overview"
+    },
+    "ui.nav.city_timeline": {
+      "tr-TR": "Saatlik Çizelge",
+      "en-US": "Hourly Timeline"
+    },
+    "ui.nav.province_map": {
+      "tr-TR": "İl Haritası",
+      "en-US": "Province Map"
+    },
+    "ui.nav.settings": {
+      "tr-TR": "Ayarlar",
+      "en-US": "Settings"
+    },
+    "ui.settings.locale.title": {
+      "tr-TR": "Dil Seçimi",
+      "en-US": "Language Selection"
+    },
+    "ui.settings.locale.tr": {
+      "tr-TR": "Türkçe",
+      "en-US": "Turkish"
+    },
+    "ui.settings.locale.en": {
+      "tr-TR": "İngilizce",
+      "en-US": "English"
+    },
+    "ui.insight.forecast_vs_actual.title": {
+      "tr-TR": "Tahmin ve Gerçek Karşılaştırması",
+      "en-US": "Forecast vs Actual"
+    }
+  },
+  "payload_key_guidance": {
+    "pattern": "<domain>.<entity>.<label>",
+    "example": "aq.category.good",
+    "notes": [
+      "User-facing labels should be delivered as stable translation keys where possible.",
+      "Client applications resolve keys into TR/EN strings.",
+      "API payloads should expose translation keys and optional localized labels for convenience."
+    ]
+  },
+  "app_payload_localization_fields": {
+    "city_current_snapshot": {
+      "key_field": "aq_category_key",
+      "label_field": "aq_category_label",
+      "locale_field": "label_locale"
+    },
+    "province_map_metrics": {
+      "aq_key_field": "aq_alert_key",
+      "aq_label_field": "aq_alert_label",
+      "heat_key_field": "heat_alert_key",
+      "heat_label_field": "heat_alert_label",
+      "locale_field": "label_locale"
+    }
+  }
+}

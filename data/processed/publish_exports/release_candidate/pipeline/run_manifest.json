@@ -1,0 +1,311 @@
+{
+  "run_id": "20260407T104106Z",
+  "mode": "full",
+  "status": "succeeded",
+  "started_at_utc": "2026-04-07T10:41:06.908013+00:00",
+  "ended_at_utc": "2026-04-07T10:43:11.612722+00:00",
+  "duration_seconds": 124.704709,
+  "project_root": ".",
+  "python": "<redacted:absolute-path>",
+  "args": {
+    "mode": "full",
+    "steps": null,
+    "from_step": null,
+    "to_step": null,
+    "resume_from_latest_failed": false,
+    "hf_year": 2024,
+    "hf_min_city_count_per_month": 81,
+    "cams_months": null,
+    "skip_cams_combined": false,
+    "marts_refresh_mode": null,
+    "incremental_lookback_hours": 96,
+    "skip_api_smoke": false,
+    "skip_tests": false,
+    "include_tests": false,
+    "allow_concurrent": false,
+    "prune_old_runs": false,
+    "retention_days": 30,
+    "dry_run": false,
+    "quiet": true
+  },
+  "selected_steps": [
+    "historical_forecast_extended",
+    "cams_extract",
+    "marts_build",
+    "validate_outputs",
+    "export_contracts",
+    "api_smoke",
+    "pytest"
+  ],
+  "steps": [
+    {
+      "name": "historical_forecast_extended",
+      "description": "Build canonical extended historical forecast outputs.",
+      "status": "succeeded",
+      "command": [
+        "<redacted:absolute-path>",
+        "scripts/build_historical_forecast_extended.py",
+        "--year",
+        "2024",
+        "--min-city-count-per-month",
+        "81"
+      ],
+      "started_at_utc": "2026-04-07T10:41:06.908837+00:00",
+      "ended_at_utc": "2026-04-07T10:41:25.402498+00:00",
+      "duration_seconds": 18.493661,
+      "exit_code": 0,
+      "log_path": "01_historical_forecast_extended.log",
+      "error_tail": null
+    },
+    {
+      "name": "cams_extract",
+      "description": "Extract CAMS city-hourly monthly and combined outputs.",
+      "status": "succeeded",
+      "command": [
+        "<redacted:absolute-path>",
+        "scripts/extract_cams_city_hourly_tr.py"
+      ],
+      "started_at_utc": "2026-04-07T10:41:25.402907+00:00",
+      "ended_at_utc": "2026-04-07T10:42:35.239641+00:00",
+      "duration_seconds": 69.836734,
+      "exit_code": 0,
+      "log_path": "02_cams_extract.log",
+      "error_tail": null
+    },
+    {
+      "name": "marts_build",
+      "description": "Build/update analytics marts and mobile views.",
+      "status": "succeeded",
+      "command": [
+        "<redacted:absolute-path>",
+        "scripts/build_analytics_marts.py",
+        "--refresh-mode",
+        "full",
+        "--incremental-lookback-hours",
+        "96"
+      ],
+      "started_at_utc": "2026-04-07T10:42:35.240133+00:00",
+      "ended_at_utc": "2026-04-07T10:43:08.683882+00:00",
+      "duration_seconds": 33.443749,
+      "exit_code": 0,
+      "log_path": "03_marts_build.log",
+      "error_tail": null
+    },
+    {
+      "name": "validate_outputs",
+      "description": "Run strict analytics and manifest validation checks.",
+      "status": "succeeded",
+      "command": [
+        "<redacted:absolute-path>",
+        "scripts/validate_analytics_outputs.py"
+      ],
+      "started_at_utc": "2026-04-07T10:43:08.684413+00:00",
+      "ended_at_utc": "2026-04-07T10:43:08.773168+00:00",
+      "duration_seconds": 0.088755,
+      "exit_code": 0,
+      "log_path": "04_validate_outputs.log",
+      "error_tail": null
+    },
+    {
+      "name": "export_contracts",
+      "description": "Export API and parquet data contracts.",
+      "status": "succeeded",
+      "command": [
+        "<redacted:absolute-path>",
+        "scripts/export_data_contracts.py"
+      ],
+      "started_at_utc": "2026-04-07T10:43:08.773575+00:00",
+      "ended_at_utc": "2026-04-07T10:43:08.896596+00:00",
+      "duration_seconds": 0.123021,
+      "exit_code": 0,
+      "log_path": "05_export_contracts.log",
+      "error_tail": null
+    },
+    {
+      "name": "api_smoke",
+      "description": "Run local API smoke checks via TestClient.",
+      "status": "succeeded",
+      "command": [
+        "<redacted:absolute-path>",
+        "scripts/smoke_test_api.py"
+      ],
+      "started_at_utc": "2026-04-07T10:43:08.897051+00:00",
+      "ended_at_utc": "2026-04-07T10:43:09.486308+00:00",
+      "duration_seconds": 0.589257,
+      "exit_code": 0,
+      "log_path": "06_api_smoke.log",
+      "error_tail": null
+    },
+    {
+      "name": "pytest",
+      "description": "Run regression tests.",
+      "status": "succeeded",
+      "command": [
+        "<redacted:absolute-path>",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "started_at_utc": "2026-04-07T10:43:09.486732+00:00",
+      "ended_at_utc": "2026-04-07T10:43:11.612269+00:00",
+      "duration_seconds": 2.125537,
+      "exit_code": 0,
+      "log_path": "07_pytest.log",
+      "error_tail": null
+    }
+  ],
+  "artifacts": {
+    "historical_forecast_extended": {
+      "manifest_path": "data/raw/open_meteo/historical_forecast/manifests/historical_forecast_extended_manifest.json",
+      "validated_min_city_count": 81,
+      "rows_after_dedup": 711504,
+      "city_count": 81,
+      "time_min": "2024-01-01T00:00",
+      "time_max": "2024-12-31T23:00"
+    },
+    "cams": {
+      "manifest_path": "data/processed/cams/cams_city_hourly_manifest.json",
+      "available_month_count": 12,
+      "available_months": [
+        "2024_01",
+        "2024_02",
+        "2024_03",
+        "2024_04",
+        "2024_05",
+        "2024_06",
+        "2024_07",
+        "2024_08",
+        "2024_09",
+        "2024_10",
+        "2024_11",
+        "2024_12"
+      ],
+      "combined_rows": 651240
+    },
+    "marts": {
+      "manifest_path": "data/processed/marts/marts_build_manifest.json",
+      "build_mode": "full",
+      "refresh_start": null,
+      "city_hourly_environment_rows": 756216,
+      "city_forecast_vs_actual_rows": 711504
+    },
+    "validation": {
+      "report_path": "data/processed/marts/validation_report.json",
+      "passed": true,
+      "check_count": 41,
+      "failed_count": 0
+    },
+    "contracts": {
+      "parquet_manifest_path": "data/contracts/parquet_contracts.json",
+      "dataset_contract_count": 7,
+      "i18n_contract_path": "data/contracts/i18n_contract.json",
+      "supported_locales": [
+        "tr-TR",
+        "en-US"
+      ],
+      "translation_key_count": 23,
+      "product_shell_contract_path": "data/contracts/product_shell_view_models.json",
+      "product_shell_screen_count": 4
+    }
+  },
+  "run_management": {
+    "lock_enabled": true,
+    "lock_path": "data/processed/pipeline_runs/pipeline.lock",
+    "lock_pid": 8520,
+    "previous_success_run_id": "20260407T103910Z",
+    "ops_status_path": "data/processed/ops/ops_status_latest.json"
+  },
+  "run_dir": "data/processed/pipeline_runs/20260407T104106Z",
+  "events_path": "data/processed/pipeline_runs/20260407T104106Z/events.jsonl",
+  "artifacts_delta": {
+    "has_previous": true,
+    "changed_metric_count": 0,
+    "metrics": {
+      "cams.available_month_count": {
+        "current": 12.0,
+        "previous": 12.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "cams.combined_rows": {
+        "current": 651240.0,
+        "previous": 651240.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "contracts.dataset_contract_count": {
+        "current": 7.0,
+        "previous": 7.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "contracts.product_shell_screen_count": {
+        "current": 4.0,
+        "previous": 4.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "contracts.translation_key_count": {
+        "current": 23.0,
+        "previous": 23.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "historical_forecast_extended.city_count": {
+        "current": 81.0,
+        "previous": 81.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "historical_forecast_extended.rows_after_dedup": {
+        "current": 711504.0,
+        "previous": 711504.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "historical_forecast_extended.validated_min_city_count": {
+        "current": 81.0,
+        "previous": 81.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "marts.city_forecast_vs_actual_rows": {
+        "current": 711504.0,
+        "previous": 711504.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "marts.city_hourly_environment_rows": {
+        "current": 756216.0,
+        "previous": 756216.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "validation.check_count": {
+        "current": 41.0,
+        "previous": 41.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "validation.failed_count": {
+        "current": 0.0,
+        "previous": 0.0,
+        "delta": 0.0,
+        "changed": false
+      },
+      "validation.passed": {
+        "current": 1.0,
+        "previous": 1.0,
+        "delta": 0.0,
+        "changed": false
+      }
+    }
+  },
+  "alerting": {
+    "enabled": false,
+    "should_send": false,
+    "escalation": null,
+    "channels": [],
+    "record_path": null
+  }
+}

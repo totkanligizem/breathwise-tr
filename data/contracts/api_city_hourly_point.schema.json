@@ -1,0 +1,111 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.874823+00:00",
+  "model": "CityHourlyPoint",
+  "schema": {
+    "properties": {
+      "city_name": {
+        "title": "City Name",
+        "type": "string"
+      },
+      "province_name": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Province Name"
+      },
+      "time": {
+        "title": "Time",
+        "type": "string"
+      },
+      "hw_temperature_2m": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Hw Temperature 2M"
+      },
+      "hf_temperature_2m": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Hf Temperature 2M"
+      },
+      "fw_temperature_2m": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Fw Temperature 2M"
+      },
+      "aq_european_aqi": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq European Aqi"
+      },
+      "aq_pm2_5": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Pm2 5"
+      },
+      "cams_pm2p5": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Cams Pm2P5"
+      },
+      "available_source_count": {
+        "title": "Available Source Count",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "city_name",
+      "time",
+      "available_source_count"
+    ],
+    "title": "CityHourlyPoint",
+    "type": "object"
+  }
+}

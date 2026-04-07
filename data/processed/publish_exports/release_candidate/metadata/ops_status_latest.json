@@ -1,0 +1,158 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:11.614852+00:00",
+  "latest_run": {
+    "run_id": "20260407T104106Z",
+    "status": "succeeded",
+    "mode": "full",
+    "started_at_utc": "2026-04-07T10:41:06.908013+00:00",
+    "ended_at_utc": "2026-04-07T10:43:11.612722+00:00",
+    "duration_seconds": 124.704709,
+    "failed_step_name": null,
+    "manifest_path": "data/processed/pipeline_runs/20260407T104106Z/run_manifest.json"
+  },
+  "latest_success_run": {
+    "run_id": "20260407T104106Z",
+    "status": "succeeded",
+    "mode": "full",
+    "started_at_utc": "2026-04-07T10:41:06.908013+00:00",
+    "ended_at_utc": "2026-04-07T10:43:11.612722+00:00",
+    "duration_seconds": 124.704709,
+    "failed_step_name": null,
+    "manifest_path": "data/processed/pipeline_runs/20260407T104106Z/run_manifest.json"
+  },
+  "recent_failures": [
+    {
+      "timestamp_utc": "2026-04-06T22:45:23.906068+00:00",
+      "run_id": "20260406T224523Z",
+      "mode": "incremental",
+      "manifest_path": "data/processed/pipeline_runs/20260406T224523Z/run_manifest.json"
+    },
+    {
+      "timestamp_utc": "2026-04-07T09:19:54.518193+00:00",
+      "run_id": "20260407T091954Z",
+      "mode": "incremental",
+      "manifest_path": "data/processed/pipeline_runs/20260407T091954Z/run_manifest.json"
+    }
+  ],
+  "latest_failure_run": {
+    "run_id": "20260407T091954Z",
+    "mode": "incremental",
+    "timestamp_utc": "2026-04-07T09:19:54.518193+00:00",
+    "manifest_path": "data/processed/pipeline_runs/20260407T091954Z/run_manifest.json",
+    "age_hours": 1.388
+  },
+  "validation": {
+    "report_path": "data/processed/marts/validation_report.json",
+    "passed": true,
+    "check_count": 41,
+    "failed_count": 0,
+    "generated_at_utc": "2026-04-07T10:43:08.764556+00:00"
+  },
+  "scheduler_health": {
+    "evaluated_at_utc": "2026-04-07T10:43:11.614819+00:00",
+    "overall_status": "healthy",
+    "critical_modes": [],
+    "warning_modes": [],
+    "policy": {
+      "incremental": {
+        "expected_every_hours": 6,
+        "max_stale_hours": 12,
+        "required": true
+      },
+      "standard": {
+        "expected_every_hours": 24,
+        "max_stale_hours": 36,
+        "required": true
+      },
+      "full": {
+        "expected_every_hours": 168,
+        "max_stale_hours": 240,
+        "required": false
+      }
+    },
+    "modes": {
+      "incremental": {
+        "status": "ok",
+        "required": true,
+        "expected_every_hours": 6,
+        "max_stale_hours": 12,
+        "last_success_run_id": "20260407T103910Z",
+        "last_success_at_utc": "2026-04-07T10:39:44.789609+00:00",
+        "age_hours": 0.057,
+        "missed_run_estimate": 0,
+        "next_expected_by_utc": "2026-04-07T16:39:44.789609+00:00",
+        "stale": false
+      },
+      "standard": {
+        "status": "ok",
+        "required": true,
+        "expected_every_hours": 24,
+        "max_stale_hours": 36,
+        "last_success_run_id": "20260406T151049Z",
+        "last_success_at_utc": "2026-04-06T15:12:26.124098+00:00",
+        "age_hours": 19.513,
+        "missed_run_estimate": 0,
+        "next_expected_by_utc": "2026-04-07T15:12:26.124098+00:00",
+        "stale": false
+      },
+      "full": {
+        "status": "ok",
+        "required": false,
+        "expected_every_hours": 168,
+        "max_stale_hours": 240,
+        "last_success_run_id": "20260407T104106Z",
+        "last_success_at_utc": "2026-04-07T10:43:11.614208+00:00",
+        "age_hours": 0.0,
+        "missed_run_estimate": 0,
+        "next_expected_by_utc": "2026-04-14T10:43:11.614208+00:00",
+        "stale": false
+      }
+    }
+  },
+  "freshness": {
+    "latest_success_age_hours": 0.0,
+    "latest_failure_age_hours": 1.388
+  },
+  "pipeline_lock": {
+    "path": "data/processed/pipeline_runs/pipeline.lock",
+    "active": true,
+    "payload": {
+      "pid": 8520,
+      "run_id": "20260407T104106Z",
+      "acquired_at_utc": "2026-04-07T10:41:06.908136+00:00",
+      "lock_version": 1
+    }
+  },
+  "alerting": {
+    "alerts_dir": "data/processed/alerts",
+    "latest_alert_path": "data/processed/alerts/latest_alert.json",
+    "state_path": "data/processed/alerts/alert_state.json",
+    "latest_alert": {
+      "timestamp_utc": "2026-04-06T18:18:38.884179+00:00",
+      "run_id": "20260406T181804Z",
+      "status": "succeeded",
+      "mode": "incremental",
+      "failed_step_name": null
+    },
+    "state": {
+      "updated_at_utc": null,
+      "last_failure_signature": null,
+      "last_failure_at_utc": null,
+      "tracked_signature_count": 0
+    }
+  },
+  "pointers": {
+    "latest_run_manifest": "data/processed/pipeline_runs/latest_run_manifest.json",
+    "latest_success_run_manifest": "data/processed/pipeline_runs/latest_success_run_manifest.json"
+  },
+  "summary": {
+    "overall_status": "healthy",
+    "latest_run_status": "succeeded",
+    "latest_success_age_hours": 0.0,
+    "latest_failure_age_hours": 1.388,
+    "validation_passed": true,
+    "recent_failure_count": 2,
+    "latest_alert_status": "succeeded",
+    "latest_alert_at_utc": "2026-04-06T18:18:38.884179+00:00"
+  }
+}

@@ -1,0 +1,11 @@
+[Unit]
+Description=Breathwise TR standard pipeline timer
+
+[Timer]
+OnCalendar=*-*-* 02:15:00
+Persistent=true
+Unit=breathwise-pipeline@standard.service
+
+[Install]
+WantedBy=timers.target
+

@@ -1,0 +1,217 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.875247+00:00",
+  "model": "ProvinceMapMetric",
+  "schema": {
+    "properties": {
+      "province_name": {
+        "title": "Province Name",
+        "type": "string"
+      },
+      "shape_iso": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Shape Iso"
+      },
+      "snapshot_time": {
+        "title": "Snapshot Time",
+        "type": "string"
+      },
+      "city_count": {
+        "title": "City Count",
+        "type": "integer"
+      },
+      "avg_forecast_temperature_2m": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Avg Forecast Temperature 2M"
+      },
+      "avg_aq_european_aqi": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Avg Aq European Aqi"
+      },
+      "max_aq_european_aqi": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Max Aq European Aqi"
+      },
+      "avg_aq_pm2_5": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Avg Aq Pm2 5"
+      },
+      "hw_2024_avg_temperature_2m": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Hw 2024 Avg Temperature 2M"
+      },
+      "cams_avg_pm2p5": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Cams Avg Pm2P5"
+      },
+      "cams_avg_no2": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Cams Avg No2"
+      },
+      "cams_2024_01_avg_pm2p5": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Cams 2024 01 Avg Pm2P5"
+      },
+      "aq_alert_flag": {
+        "title": "Aq Alert Flag",
+        "type": "integer"
+      },
+      "aq_alert_key": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Alert Key"
+      },
+      "aq_alert_label": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Alert Label"
+      },
+      "heat_alert_flag": {
+        "title": "Heat Alert Flag",
+        "type": "integer"
+      },
+      "heat_alert_key": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Heat Alert Key"
+      },
+      "heat_alert_label": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Heat Alert Label"
+      },
+      "label_locale": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Label Locale"
+      },
+      "map_priority_score": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Map Priority Score"
+      }
+    },
+    "required": [
+      "province_name",
+      "snapshot_time",
+      "city_count",
+      "aq_alert_flag",
+      "heat_alert_flag"
+    ],
+    "title": "ProvinceMapMetric",
+    "type": "object"
+  }
+}

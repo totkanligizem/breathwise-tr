@@ -1,0 +1,65 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.873316+00:00",
+  "model": "DatasetMeta",
+  "schema": {
+    "properties": {
+      "dataset_name": {
+        "title": "Dataset Name",
+        "type": "string"
+      },
+      "path": {
+        "title": "Path",
+        "type": "string"
+      },
+      "row_count": {
+        "title": "Row Count",
+        "type": "integer"
+      },
+      "entity_count": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Entity Count"
+      },
+      "time_min": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Time Min"
+      },
+      "time_max": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Time Max"
+      }
+    },
+    "required": [
+      "dataset_name",
+      "path",
+      "row_count"
+    ],
+    "title": "DatasetMeta",
+    "type": "object"
+  }
+}

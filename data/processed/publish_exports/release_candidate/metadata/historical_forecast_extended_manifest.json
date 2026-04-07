@@ -1,0 +1,27 @@
+{
+  "year": 2024,
+  "generated_at_utc": "2026-04-07T10:41:25.349782+00:00",
+  "outputs": {
+    "validated_full": "data/raw/open_meteo/historical_forecast/tidy/validated/historical_forecast_hourly_tr_2024_validated_monthly_full.csv",
+    "validated_light": "data/raw/open_meteo/historical_forecast/tidy/validated/historical_forecast_hourly_tr_2024_validated_monthly_light.csv",
+    "canonical_extended_full": "data/raw/open_meteo/historical_forecast/tidy/canonical/historical_forecast_hourly_tr_2024_extended_full.csv",
+    "canonical_extended_light": "data/raw/open_meteo/historical_forecast/tidy/canonical/historical_forecast_hourly_tr_2024_extended_light.csv",
+    "monthly_coverage": "data/raw/open_meteo/historical_forecast/manifests/historical_forecast_extended_monthly_coverage.csv"
+  },
+  "stats": {
+    "files_total": 1217,
+    "files_selected": 972,
+    "files_parsed": 972,
+    "files_unmapped": 0,
+    "files_failed": 0,
+    "validated_rows": 711504,
+    "canonical_rows": 13608,
+    "rows_before_dedup": 725112,
+    "rows_after_dedup": 711504,
+    "duplicates_removed": 13608,
+    "city_count": 81,
+    "validated_min_city_count": 81,
+    "time_min": "2024-01-01T00:00",
+    "time_max": "2024-12-31T23:00"
+  }
+}

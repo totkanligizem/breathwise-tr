@@ -1,0 +1,93 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.876983+00:00",
+  "version": "v1",
+  "localization": {
+    "translation_strategy": "translation-key-first",
+    "supported_locales": [
+      "tr-TR",
+      "en-US"
+    ],
+    "default_locale": "tr-TR",
+    "fallback_locale": "en-US",
+    "label_locale_field": "label_locale",
+    "meta_endpoint": "/v1/meta/localization"
+  },
+  "screens": [
+    {
+      "screen_id": "city_current_overview",
+      "title_key": "ui.city.current.title",
+      "endpoint": "/v1/mobile/cities/current",
+      "query_params": {
+        "city_name": "optional",
+        "limit": "optional",
+        "locale": "optional"
+      },
+      "view_model_fields": [
+        "city_name",
+        "snapshot_time",
+        "forecast_temperature_2m",
+        "aq_european_aqi",
+        "aq_category",
+        "aq_category_key",
+        "aq_category_label",
+        "label_locale"
+      ]
+    },
+    {
+      "screen_id": "city_hourly_timeline",
+      "title_key": "ui.city.timeline.title",
+      "endpoint": "/v1/mobile/cities/{city_name}/timeline",
+      "query_params": {
+        "start": "optional",
+        "end": "optional",
+        "limit": "optional"
+      },
+      "view_model_fields": [
+        "city_name",
+        "time",
+        "forecast_temperature_2m",
+        "aq_european_aqi",
+        "aq_pm2_5",
+        "aq_pm10"
+      ]
+    },
+    {
+      "screen_id": "province_map_metrics",
+      "title_key": "ui.province.map.title",
+      "endpoint": "/v1/mobile/provinces/map-metrics",
+      "query_params": {
+        "limit": "optional",
+        "locale": "optional"
+      },
+      "view_model_fields": [
+        "province_name",
+        "avg_aq_european_aqi",
+        "max_aq_european_aqi",
+        "avg_forecast_temperature_2m",
+        "map_priority_score",
+        "aq_alert_flag",
+        "aq_alert_key",
+        "aq_alert_label",
+        "heat_alert_flag",
+        "heat_alert_key",
+        "heat_alert_label",
+        "label_locale"
+      ]
+    },
+    {
+      "screen_id": "settings_locale",
+      "title_key": "ui.settings.locale.title",
+      "source": "localization_contract",
+      "view_model_fields": [
+        "supported_locales",
+        "default_locale",
+        "fallback_locale"
+      ]
+    }
+  ],
+  "fallback_behavior": {
+    "missing_label": "render_from_translation_key",
+    "missing_translation_key": "render_raw_value_or_safe_placeholder",
+    "unsupported_locale": "client_normalize_or_retry_with_default_locale"
+  }
+}

@@ -1,0 +1,25 @@
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin
+
+# Breathwise TR scheduler examples
+# Replace __PROJECT_ROOT__ before installing.
+# Optional env:
+# BREATHWISE_API_AUTH_ENABLED=true
+# BREATHWISE_API_KEY=...
+# BREATHWISE_ALERTS_ENABLED=true
+# BREATHWISE_ALERT_ON_FAILURE=true
+# BREATHWISE_ALERT_WEBHOOK_URL=https://...
+
+BREATHWISE_PROJECT_ROOT=__PROJECT_ROOT__
+BREATHWISE_PIPELINE_RETENTION_DAYS=30
+BREATHWISE_LOG_ROTATE_MAX_BYTES=5000000
+BREATHWISE_LOG_ROTATE_RETAIN_ARCHIVES=14
+
+# Every 6 hours: incremental
+5 */6 * * * mkdir -p __PROJECT_ROOT__/data/processed/scheduler_logs && cd __PROJECT_ROOT__ && /bin/bash scripts/run_scheduled_pipeline.sh incremental >> data/processed/scheduler_logs/incremental.log 2>&1
+
+# Daily at 02:15: standard
+15 2 * * * mkdir -p __PROJECT_ROOT__/data/processed/scheduler_logs && cd __PROJECT_ROOT__ && /bin/bash scripts/run_scheduled_pipeline.sh standard >> data/processed/scheduler_logs/standard.log 2>&1
+
+# Weekly Sunday at 03:30: full
+30 3 * * 0 mkdir -p __PROJECT_ROOT__/data/processed/scheduler_logs && cd __PROJECT_ROOT__ && /bin/bash scripts/run_scheduled_pipeline.sh full >> data/processed/scheduler_logs/full.log 2>&1

@@ -1,0 +1,152 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.876385+00:00",
+  "model": "MobileProvinceMapMetric",
+  "schema": {
+    "properties": {
+      "province_name": {
+        "title": "Province Name",
+        "type": "string"
+      },
+      "shape_iso": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Shape Iso"
+      },
+      "snapshot_time": {
+        "title": "Snapshot Time",
+        "type": "string"
+      },
+      "avg_aq_european_aqi": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Avg Aq European Aqi"
+      },
+      "max_aq_european_aqi": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Max Aq European Aqi"
+      },
+      "avg_forecast_temperature_2m": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Avg Forecast Temperature 2M"
+      },
+      "map_priority_score": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Map Priority Score"
+      },
+      "aq_alert_flag": {
+        "title": "Aq Alert Flag",
+        "type": "integer"
+      },
+      "aq_alert_key": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Alert Key"
+      },
+      "aq_alert_label": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Alert Label"
+      },
+      "heat_alert_flag": {
+        "title": "Heat Alert Flag",
+        "type": "integer"
+      },
+      "heat_alert_key": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Heat Alert Key"
+      },
+      "heat_alert_label": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Heat Alert Label"
+      },
+      "label_locale": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Label Locale"
+      }
+    },
+    "required": [
+      "province_name",
+      "snapshot_time",
+      "aq_alert_flag",
+      "heat_alert_flag"
+    ],
+    "title": "MobileProvinceMapMetric",
+    "type": "object"
+  }
+}

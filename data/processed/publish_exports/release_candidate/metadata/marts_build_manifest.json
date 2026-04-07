@@ -1,0 +1,115 @@
+{
+  "built_at_utc": "2026-04-07T10:43:08.444793+00:00",
+  "build_mode": "full",
+  "refresh_start": null,
+  "inputs": {
+    "dim_city": "data/raw/open_meteo/geocoding/dim_city_2026-03-29.csv",
+    "dim_province": "data/processed/geography/dim_province_tr.csv",
+    "forecast_current": "data/raw/open_meteo/forecast/tidy/forecast_current_tr_2026-03-29.csv",
+    "forecast_hourly": "data/raw/open_meteo/forecast/tidy/forecast_hourly_tr_2026-03-29.csv",
+    "air_quality_current": "data/raw/open_meteo/air_quality/tidy/air_quality_current_tr_2026-03-29.csv",
+    "air_quality_hourly": "data/raw/open_meteo/air_quality/tidy/air_quality_hourly_tr_2026-03-29.csv",
+    "historical_weather_hourly": "data/raw/open_meteo/historical_weather/tidy/historical_weather_hourly_tr_2024_2026-03-29.csv",
+    "historical_forecast_hourly": "data/raw/open_meteo/historical_forecast/tidy/canonical/historical_forecast_hourly_tr_2024_extended_full.csv",
+    "cams_city_hourly": "data/processed/cams/cams_city_hourly_tr_all_available.csv"
+  },
+  "input_fingerprints": {
+    "dim_city": {
+      "path": "data/raw/open_meteo/geocoding/dim_city_2026-03-29.csv",
+      "size_bytes": 5538,
+      "mtime_ns": 1774804875377788945,
+      "sha256": "a7bf89cf59cc4ada9371afb1427b0597e42e77046ecb552a8f97d84c3f5d41cb"
+    },
+    "dim_province": {
+      "path": "data/processed/geography/dim_province_tr.csv",
+      "size_bytes": 5194,
+      "mtime_ns": 1774819618118476107,
+      "sha256": "32c6af8b5e5f4235c3c4830fad28c67c1f6b9349eb7e8de5f317df07aca4304d"
+    },
+    "forecast_current": {
+      "path": "data/raw/open_meteo/forecast/tidy/forecast_current_tr_2026-03-29.csv",
+      "size_bytes": 12490,
+      "mtime_ns": 1774799365484227681,
+      "sha256": "03da5d053ecae7cbf03592732c3ee213bc315da26f2eeb0a174f423f13effc1e"
+    },
+    "forecast_hourly": {
+      "path": "data/raw/open_meteo/forecast/tidy/forecast_hourly_tr_2026-03-29.csv",
+      "size_bytes": 8853906,
+      "mtime_ns": 1774799365776188982,
+      "sha256": "d826047f11f324e07a130483ab08144993e6eaa8036d618f44870a1249692af2"
+    },
+    "air_quality_current": {
+      "path": "data/raw/open_meteo/air_quality/tidy/air_quality_current_tr_2026-03-29.csv",
+      "size_bytes": 11966,
+      "mtime_ns": 1774802532772003141,
+      "sha256": "b2b26b7e10d4dcb18cc3301b609fd332b5ff108347bec73115155c0f81859a1e"
+    },
+    "air_quality_hourly": {
+      "path": "data/raw/open_meteo/air_quality/tidy/air_quality_hourly_tr_2026-03-29.csv",
+      "size_bytes": 3770444,
+      "mtime_ns": 1774802532903935425,
+      "sha256": "a7282649f219a439adaa2b365a9b7142d9fed1c41ad73268e664e5b56283c406"
+    },
+    "historical_weather_hourly": {
+      "path": "data/raw/open_meteo/historical_weather/tidy/historical_weather_hourly_tr_2024_2026-03-29.csv",
+      "size_bytes": 102000677,
+      "mtime_ns": 1774804877889572657,
+      "sha256": "451845792738bc0d0132d33ee699bfb91747a984dac83408f00278b4ec037150"
+    },
+    "historical_forecast_hourly": {
+      "path": "data/raw/open_meteo/historical_forecast/tidy/canonical/historical_forecast_hourly_tr_2024_extended_full.csv",
+      "size_bytes": 195723082,
+      "mtime_ns": 1775558482680344891,
+      "sha256": "15ab1bce9495777ed9eba3800d2fd076fb342318e3d605d8f29d4c32fd0d6c50"
+    },
+    "cams_city_hourly": {
+      "path": "data/processed/cams/cams_city_hourly_tr_all_available.csv",
+      "size_bytes": 116673963,
+      "mtime_ns": 1775558555187370586,
+      "sha256": "7b6d5a617f470d4536cf60f1c36880e996f9ddbb92a38b62f1abe83bc263b560"
+    }
+  },
+  "marts": {
+    "city_hourly_environment_tr": {
+      "path": "data/processed/marts/city_hourly_environment_tr.parquet",
+      "row_count": 756216,
+      "entity_count": 81,
+      "time_min": "2024-01-01T00:00:00",
+      "time_max": "2026-04-13T23:00:00"
+    },
+    "city_forecast_vs_actual_tr": {
+      "path": "data/processed/marts/city_forecast_vs_actual_tr.parquet",
+      "row_count": 711504,
+      "entity_count": 81,
+      "time_min": "2024-01-01T00:00:00",
+      "time_max": "2024-12-31T23:00:00"
+    },
+    "city_current_snapshot_tr": {
+      "path": "data/processed/marts/city_current_snapshot_tr.parquet",
+      "row_count": 81,
+      "entity_count": 81
+    },
+    "province_map_metrics_tr": {
+      "path": "data/processed/marts/province_map_metrics_tr.parquet",
+      "row_count": 81,
+      "entity_count": 81
+    }
+  },
+  "views": {
+    "mobile_city_current_snapshot_tr_light": {
+      "path": "data/processed/views/mobile_city_current_snapshot_tr_light.parquet",
+      "row_count": 81,
+      "entity_count": 81
+    },
+    "mobile_city_hourly_timeline_tr_light": {
+      "path": "data/processed/views/mobile_city_hourly_timeline_tr_light.parquet",
+      "row_count": 11745,
+      "entity_count": 81
+    },
+    "mobile_province_map_metrics_tr_light": {
+      "path": "data/processed/views/mobile_province_map_metrics_tr_light.parquet",
+      "row_count": 81,
+      "entity_count": 81
+    }
+  }
+}

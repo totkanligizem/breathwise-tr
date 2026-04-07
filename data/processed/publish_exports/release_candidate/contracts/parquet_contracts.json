@@ -1,0 +1,1519 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.881010+00:00",
+  "datasets": {
+    "city_hourly_environment_tr": {
+      "path": "data/processed/marts/city_hourly_environment_tr.parquet",
+      "status": "present",
+      "columns": [
+        {
+          "column_name": "city_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "time",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "time_ts",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "province_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "shape_iso",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "city_latitude",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "city_longitude",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "city_timezone",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "country_code",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "has_historical_weather",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "has_historical_forecast",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "has_forecast_hourly",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "has_air_quality_hourly",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "has_cams_reanalysis",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "available_source_count",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_relative_humidity_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_apparent_temperature",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_precipitation",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_rain",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_snowfall",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_weather_code",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_pressure_msl",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_cloud_cover",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_wind_speed_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_wind_direction_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_wind_gusts_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_is_day",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_sunshine_duration",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_relative_humidity_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_apparent_temperature",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_precipitation_probability",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_precipitation",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_rain",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_snowfall",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_weather_code",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_pressure_msl",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_cloud_cover",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_wind_speed_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_wind_direction_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_wind_gusts_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_uv_index",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_is_day",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_freezing_level_height",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_relative_humidity_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_apparent_temperature",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_precipitation_probability",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_precipitation",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_rain",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_snowfall",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_weather_code",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_pressure_msl",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_cloud_cover",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_wind_speed_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_wind_direction_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_wind_gusts_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_uv_index",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "fw_is_day",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_pm10",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_pm2_5",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_carbon_monoxide",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_nitrogen_dioxide",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_sulphur_dioxide",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_ozone",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_uv_index",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_european_aqi",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_european_aqi_pm2_5",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_european_aqi_pm10",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_european_aqi_ozone",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_european_aqi_nitrogen_dioxide",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_european_aqi_sulphur_dioxide",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "cams_co",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "cams_no2",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "cams_o3",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "cams_pm10",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "cams_pm2p5",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "cams_so2",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    },
+    "city_forecast_vs_actual_tr": {
+      "path": "data/processed/marts/city_forecast_vs_actual_tr.parquet",
+      "status": "present",
+      "columns": [
+        {
+          "column_name": "city_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "time",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "time_ts",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "province_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "shape_iso",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "err_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "abs_err_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_apparent_temperature",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_apparent_temperature",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "err_apparent_temperature",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "abs_err_apparent_temperature",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_precipitation",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_precipitation",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "err_precipitation",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "abs_err_precipitation",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_wind_speed_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_wind_speed_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "err_wind_speed_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "abs_err_wind_speed_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hf_weather_code",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_weather_code",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "weather_code_match",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_validation_window",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    },
+    "city_current_snapshot_tr": {
+      "path": "data/processed/marts/city_current_snapshot_tr.parquet",
+      "status": "present",
+      "columns": [
+        {
+          "column_name": "city_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "province_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "shape_iso",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "city_latitude",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "city_longitude",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "city_timezone",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "snapshot_time_ts",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "snapshot_time",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "has_forecast_current",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "has_air_quality_current",
+          "column_type": "BOOLEAN",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_relative_humidity_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_apparent_temperature",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_precipitation",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_weather_code",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_cloud_cover",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_wind_speed_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_wind_direction_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_wind_gusts_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_is_day",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_european_aqi",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_pm2_5",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_pm10",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_carbon_monoxide",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_nitrogen_dioxide",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_sulphur_dioxide",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_ozone",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_category",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    },
+    "province_map_metrics_tr": {
+      "path": "data/processed/marts/province_map_metrics_tr.parquet",
+      "status": "present",
+      "columns": [
+        {
+          "column_name": "province_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "shape_iso",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "snapshot_time_ts",
+          "column_type": "TIMESTAMP",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "snapshot_time",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "city_count",
+          "column_type": "BIGINT",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "avg_forecast_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "avg_forecast_apparent_temperature",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "avg_aq_european_aqi",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "max_aq_european_aqi",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "avg_aq_pm2_5",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "avg_aq_pm10",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_2024_avg_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "hw_2024_avg_precipitation",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "cams_avg_pm2p5",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "cams_avg_no2",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "cams_2024_01_avg_pm2p5",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "cams_2024_01_avg_no2",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_alert_flag",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "heat_alert_flag",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "map_priority_score",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    },
+    "mobile_city_current_snapshot_tr_light": {
+      "path": "data/processed/views/mobile_city_current_snapshot_tr_light.parquet",
+      "status": "present",
+      "columns": [
+        {
+          "column_name": "city_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "province_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "snapshot_time",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "city_latitude",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "city_longitude",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_apparent_temperature",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_weather_code",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_wind_speed_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_european_aqi",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_category",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_pm2_5",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_pm10",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    },
+    "mobile_city_hourly_timeline_tr_light": {
+      "path": "data/processed/views/mobile_city_hourly_timeline_tr_light.parquet",
+      "status": "present",
+      "columns": [
+        {
+          "column_name": "city_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "province_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "time",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_weather_code",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_precipitation_probability",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "forecast_wind_speed_10m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_european_aqi",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_pm2_5",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_pm10",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    },
+    "mobile_province_map_metrics_tr_light": {
+      "path": "data/processed/views/mobile_province_map_metrics_tr_light.parquet",
+      "status": "present",
+      "columns": [
+        {
+          "column_name": "province_name",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "shape_iso",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "snapshot_time",
+          "column_type": "VARCHAR",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "avg_aq_european_aqi",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "max_aq_european_aqi",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "avg_forecast_temperature_2m",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "map_priority_score",
+          "column_type": "DOUBLE",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "aq_alert_flag",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        },
+        {
+          "column_name": "heat_alert_flag",
+          "column_type": "INTEGER",
+          "null": "YES",
+          "key": null,
+          "default": null,
+          "extra": null
+        }
+      ]
+    }
+  }
+}

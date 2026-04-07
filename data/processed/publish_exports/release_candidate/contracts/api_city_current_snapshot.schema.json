@@ -1,0 +1,190 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.874221+00:00",
+  "model": "CityCurrentSnapshot",
+  "schema": {
+    "properties": {
+      "city_name": {
+        "title": "City Name",
+        "type": "string"
+      },
+      "province_name": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Province Name"
+      },
+      "snapshot_time": {
+        "title": "Snapshot Time",
+        "type": "string"
+      },
+      "city_latitude": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "City Latitude"
+      },
+      "city_longitude": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "City Longitude"
+      },
+      "forecast_temperature_2m": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Forecast Temperature 2M"
+      },
+      "forecast_apparent_temperature": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Forecast Apparent Temperature"
+      },
+      "forecast_weather_code": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Forecast Weather Code"
+      },
+      "forecast_wind_speed_10m": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Forecast Wind Speed 10M"
+      },
+      "aq_european_aqi": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq European Aqi"
+      },
+      "aq_category": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Category"
+      },
+      "aq_category_key": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Category Key"
+      },
+      "aq_category_label": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Category Label"
+      },
+      "label_locale": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Label Locale"
+      },
+      "aq_pm2_5": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Pm2 5"
+      },
+      "aq_pm10": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Pm10"
+      }
+    },
+    "required": [
+      "city_name",
+      "snapshot_time"
+    ],
+    "title": "CityCurrentSnapshot",
+    "type": "object"
+  }
+}

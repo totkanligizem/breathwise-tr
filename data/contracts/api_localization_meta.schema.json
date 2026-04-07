@@ -1,0 +1,55 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.873965+00:00",
+  "model": "LocalizationMeta",
+  "schema": {
+    "properties": {
+      "supported_locales": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Supported Locales",
+        "type": "array"
+      },
+      "default_locale": {
+        "title": "Default Locale",
+        "type": "string"
+      },
+      "fallback_locale": {
+        "title": "Fallback Locale",
+        "type": "string"
+      },
+      "locale_aliases": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "title": "Locale Aliases",
+        "type": "object"
+      },
+      "translation_key_count": {
+        "title": "Translation Key Count",
+        "type": "integer"
+      },
+      "generated_at_utc": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Generated At Utc"
+      }
+    },
+    "required": [
+      "supported_locales",
+      "default_locale",
+      "fallback_locale",
+      "translation_key_count"
+    ],
+    "title": "LocalizationMeta",
+    "type": "object"
+  }
+}

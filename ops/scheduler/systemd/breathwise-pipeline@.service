@@ -1,0 +1,13 @@
+[Unit]
+Description=Breathwise TR pipeline (%i)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=__PROJECT_ROOT__
+Environment=BREATHWISE_PROJECT_ROOT=__PROJECT_ROOT__
+Environment=BREATHWISE_PIPELINE_RETENTION_DAYS=30
+Environment=BREATHWISE_LOG_ROTATE_MAX_BYTES=5000000
+Environment=BREATHWISE_LOG_ROTATE_RETAIN_ARCHIVES=14
+ExecStart=/bin/bash __PROJECT_ROOT__/scripts/run_scheduled_pipeline.sh %i
+

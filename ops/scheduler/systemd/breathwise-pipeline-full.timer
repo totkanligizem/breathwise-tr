@@ -1,0 +1,11 @@
+[Unit]
+Description=Breathwise TR full pipeline timer
+
+[Timer]
+OnCalendar=Sun *-*-* 03:30:00
+Persistent=true
+Unit=breathwise-pipeline@full.service
+
+[Install]
+WantedBy=timers.target
+

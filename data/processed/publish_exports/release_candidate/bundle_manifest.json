@@ -1,0 +1,230 @@
+{
+  "bundle_id": "release_candidate",
+  "generated_at_utc": "2026-04-07T12:50:54.652562+00:00",
+  "project_root": "<redacted:absolute-path>",
+  "source_policy": {
+    "raw_immutability_preserved": true,
+    "absolute_paths_sanitized": true,
+    "secrets_included": false
+  },
+  "copied_file_count": 31,
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "docs/README.md",
+      "sha256": "242110a9ab5ad2dd80f3623d64c1c93133d8298149a77793cfdad49a205c2a1a",
+      "bytes": 5757,
+      "sanitized": false
+    },
+    {
+      "source": "SECURITY.md",
+      "destination": "docs/SECURITY.md",
+      "sha256": "929fc0054fcb5815368cbc576babd3f70fa28edce392c0d0c8b11ccb1ff8e357",
+      "bytes": 1036,
+      "sanitized": false
+    },
+    {
+      "source": "THIRD_PARTY_SOURCES.md",
+      "destination": "docs/THIRD_PARTY_SOURCES.md",
+      "sha256": "95f9cb26c26bdc5016b9731b7cbdb5db740060c01548e329556a844070b228c9",
+      "bytes": 1297,
+      "sanitized": false
+    },
+    {
+      "source": "ANALYTICS_LAYER.md",
+      "destination": "docs/ANALYTICS_LAYER.md",
+      "sha256": "9011dc2e2bc31901483d162f6c7ca2d12eeb13d8de4a1497f7c544c25f707127",
+      "bytes": 6740,
+      "sanitized": false
+    },
+    {
+      "source": "DATA_PIPELINE_OVERVIEW.md",
+      "destination": "docs/DATA_PIPELINE_OVERVIEW.md",
+      "sha256": "1993e24a8adaadf76e0c8391274bea7904afc7a7d22afc0c41fc5f64a73e7039",
+      "bytes": 15369,
+      "sanitized": false
+    },
+    {
+      "source": "DATASET_CATALOG.md",
+      "destination": "docs/DATASET_CATALOG.md",
+      "sha256": "5544b06d258d302b4f20d892a6327c83072f1aff70422a9c4c4e6e8eacf9c839",
+      "bytes": 15999,
+      "sanitized": false
+    },
+    {
+      "source": "DATA_DICTIONARY.md",
+      "destination": "docs/DATA_DICTIONARY.md",
+      "sha256": "4523d586da545a2c29b135ec65b6ccd2e6607496e049a28a18c85ec5a93b3837",
+      "bytes": 22521,
+      "sanitized": false
+    },
+    {
+      "source": "JOIN_STRATEGY.md",
+      "destination": "docs/JOIN_STRATEGY.md",
+      "sha256": "84ff385620f20642f522d997f327c734c98103f8f43c08ecc43f6f94ee994bef",
+      "bytes": 13527,
+      "sanitized": false
+    },
+    {
+      "source": "LOCALIZATION_STRATEGY.md",
+      "destination": "docs/LOCALIZATION_STRATEGY.md",
+      "sha256": "d3b536c2551a49918a571bd1349603da1f7b5243b327593d12cbdb0511fe3fb2",
+      "bytes": 2317,
+      "sanitized": false
+    },
+    {
+      "source": "OPERATIONS_RUNBOOK.md",
+      "destination": "docs/OPERATIONS_RUNBOOK.md",
+      "sha256": "36b4afa84721889b2ad7212e6a7dfa081a675b2dc2cdc92eda7c9276c7752915",
+      "bytes": 10647,
+      "sanitized": false
+    },
+    {
+      "source": "PRODUCT_SHELL_INTEGRATION.md",
+      "destination": "docs/PRODUCT_SHELL_INTEGRATION.md",
+      "sha256": "8b01d3ee7e5cf18f4b6588e84b6554cb7d6010593e64240aefca986233f9b02a",
+      "bytes": 3721,
+      "sanitized": false
+    },
+    {
+      "source": "data/contracts/api_city_current_snapshot.schema.json",
+      "destination": "contracts/api_city_current_snapshot.schema.json",
+      "sha256": "05439192a075f5af6e7b29f4883b340eaf4e0a042bb5a884341acc5cae19252c",
+      "bytes": 3697,
+      "sanitized": true
+    },
+    {
+      "source": "data/contracts/api_city_hourly_point.schema.json",
+      "destination": "contracts/api_city_hourly_point.schema.json",
+      "sha256": "4cf42d5e1da706df7e3b96b8d0c2a47a96de04a9081a08f104b66adb0e8b5d30",
+      "bytes": 2150,
+      "sanitized": true
+    },
+    {
+      "source": "data/contracts/api_dataset_meta.schema.json",
+      "destination": "contracts/api_dataset_meta.schema.json",
+      "sha256": "80201a9ddea9883849bbebad1e17666e21da8092f5c5198364bdf129f8013cd0",
+      "bytes": 1241,
+      "sanitized": true
+    },
+    {
+      "source": "data/contracts/api_health_response.schema.json",
+      "destination": "contracts/api_health_response.schema.json",
+      "sha256": "a85820ebfbf7cde3bc1cfa2e8f0d0420bb7f3b27353db7f13602a5361e47bd92",
+      "bytes": 1083,
+      "sanitized": true
+    },
+    {
+      "source": "data/contracts/api_localization_meta.schema.json",
+      "destination": "contracts/api_localization_meta.schema.json",
+      "sha256": "40fdbbfd7a613eda19cf9323a062b261fa6fabda84dc50400b62605fadd56780",
+      "bytes": 1215,
+      "sanitized": true
+    },
+    {
+      "source": "data/contracts/api_mobile_city_timeline_point.schema.json",
+      "destination": "contracts/api_mobile_city_timeline_point.schema.json",
+      "sha256": "5088ce5a3943e04506b8528db1013bd5e6b1e6463d06b9e4fe2e2e8ee2aa2831",
+      "bytes": 2318,
+      "sanitized": true
+    },
+    {
+      "source": "data/contracts/api_mobile_province_map_metric.schema.json",
+      "destination": "contracts/api_mobile_province_map_metric.schema.json",
+      "sha256": "b869c16ef2498578e984c0563252d489950572ea9b835fcd1734670c38227ec2",
+      "bytes": 3030,
+      "sanitized": true
+    },
+    {
+      "source": "data/contracts/api_province_map_metric.schema.json",
+      "destination": "contracts/api_province_map_metric.schema.json",
+      "sha256": "f20481a2bbb45d74437ad61c476e8ab728f82c9a4739d182804832b8cd387f64",
+      "bytes": 4303,
+      "sanitized": true
+    },
+    {
+      "source": "data/contracts/i18n_contract.json",
+      "destination": "contracts/i18n_contract.json",
+      "sha256": "04491878da87b4ab558d0dab0a0cf4ac22f208bbb03a4b74b79fc73e3ebf0927",
+      "bytes": 3356,
+      "sanitized": true
+    },
+    {
+      "source": "data/contracts/parquet_contracts.json",
+      "destination": "contracts/parquet_contracts.json",
+      "sha256": "28a3f37c7d9ceb5f1e648d7f3858279103190e4da565b6eb72c2131bfcc9caf9",
+      "bytes": 38234,
+      "sanitized": true
+    },
+    {
+      "source": "data/contracts/product_shell_view_models.json",
+      "destination": "contracts/product_shell_view_models.json",
+      "sha256": "1117d6ed450d20b5c57863a0baabab56ff77684f5e70c965301e15459ca4a31f",
+      "bytes": 2461,
+      "sanitized": true
+    },
+    {
+      "source": "data/processed/marts/validation_report.json",
+      "destination": "metadata/validation_report.json",
+      "sha256": "9a1d07ad8d5779354d59eb855073dfe7de8b955726d2142f1848d8fb25ed28e4",
+      "bytes": 6713,
+      "sanitized": true
+    },
+    {
+      "source": "data/processed/marts/marts_build_manifest.json",
+      "destination": "metadata/marts_build_manifest.json",
+      "sha256": "d3ce3007fb1689ecb39a9f6196d9985ad91669b7722a8156ab1a3798cd98fd79",
+      "bytes": 4920,
+      "sanitized": true
+    },
+    {
+      "source": "data/processed/cams/cams_city_hourly_manifest.json",
+      "destination": "metadata/cams_city_hourly_manifest.json",
+      "sha256": "30f241f407a3e7abdedc4478c6afc04d0508d23e5ac25b6200d5bee14cbb7c8e",
+      "bytes": 649,
+      "sanitized": true
+    },
+    {
+      "source": "data/processed/ops/ops_status_latest.json",
+      "destination": "metadata/ops_status_latest.json",
+      "sha256": "9f4bc6ebca950919dde0dad5558c8191fdc7d7ee13c6a67e850980c9acf269b8",
+      "bytes": 5056,
+      "sanitized": true
+    },
+    {
+      "source": "data/raw/open_meteo/historical_forecast/manifests/historical_forecast_extended_manifest.json",
+      "destination": "metadata/historical_forecast_extended_manifest.json",
+      "sha256": "677617d9dcecc69a4c11c22857734c7211511b1f6bc2028f28901245a29f5566",
+      "bytes": 1223,
+      "sanitized": true
+    },
+    {
+      "source": "data/processed/pipeline_runs/latest_run_manifest.json",
+      "destination": "pipeline/latest_run_manifest.json",
+      "sha256": "f788630c722c5f405552e93b605fb8fe4f43e36841b272c8f240b056e1eb8fe1",
+      "bytes": 172,
+      "sanitized": true
+    },
+    {
+      "source": "data/processed/pipeline_runs/20260407T104106Z/run_manifest.json",
+      "destination": "pipeline/run_manifest.json",
+      "sha256": "dd6c42516fe26d31cf5504601bf9a91a21a72033cffc28392e36468172900b6d",
+      "bytes": 8919,
+      "sanitized": true
+    },
+    {
+      "source": "data/processed/pipeline_runs/latest_success_run_manifest.json",
+      "destination": "pipeline/latest_success_run_manifest.json",
+      "sha256": "0f9e7f4dd312159767afd22d03f4ab39700a4eb57bdbaefb8e5efa77415c2e6a",
+      "bytes": 172,
+      "sanitized": true
+    },
+    {
+      "source": "data/processed/pipeline_runs/20260407T104106Z/run_manifest.json",
+      "destination": "pipeline/run_manifest.json",
+      "sha256": "dd6c42516fe26d31cf5504601bf9a91a21a72033cffc28392e36468172900b6d",
+      "bytes": 8919,
+      "sanitized": true
+    }
+  ]
+}

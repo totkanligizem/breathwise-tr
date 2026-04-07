@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Breathwise TR",
+    "slug": "breathwise-tr-mobile-shell",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "experiments": {
+      "typedRoutes": false
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-font"
+    ]
+  }
+}

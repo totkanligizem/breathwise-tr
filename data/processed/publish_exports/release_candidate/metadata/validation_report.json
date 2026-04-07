@@ -1,0 +1,286 @@
+{
+  "generated_at_utc": "2026-04-07T12:39:02.366101+00:00",
+  "passed": true,
+  "check_count": 41,
+  "failed_count": 0,
+  "checks": [
+    {
+      "name": "city_hourly_environment.row_count_positive",
+      "passed": true,
+      "actual": 756216,
+      "expected": "> 0"
+    },
+    {
+      "name": "city_hourly_environment.city_count",
+      "passed": true,
+      "actual": 81,
+      "expected": "== 81"
+    },
+    {
+      "name": "city_hourly_environment.province_count",
+      "passed": true,
+      "actual": 81,
+      "expected": "== 81"
+    },
+    {
+      "name": "city_hourly_environment.duplicates_city_time",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "city_hourly_environment.available_source_count_range",
+      "passed": true,
+      "actual": {
+        "min": 1,
+        "max": 3
+      },
+      "expected": "min >= 1 and max <= 5"
+    },
+    {
+      "name": "city_hourly_environment.hf_rows_positive",
+      "passed": true,
+      "actual": 711504,
+      "expected": "> 0"
+    },
+    {
+      "name": "city_hourly_environment.hf_rows_extended_threshold",
+      "passed": true,
+      "actual": 711504,
+      "expected": "> 50000"
+    },
+    {
+      "name": "city_hourly_environment.cams_rows_positive",
+      "passed": true,
+      "actual": 651240,
+      "expected": "> 0"
+    },
+    {
+      "name": "city_forecast_vs_actual.row_count_positive",
+      "passed": true,
+      "actual": 711504,
+      "expected": "> 0"
+    },
+    {
+      "name": "city_forecast_vs_actual.city_count",
+      "passed": true,
+      "actual": 81,
+      "expected": "== 81"
+    },
+    {
+      "name": "city_forecast_vs_actual.province_count",
+      "passed": true,
+      "actual": 81,
+      "expected": "== 81"
+    },
+    {
+      "name": "city_forecast_vs_actual.duplicates_city_time",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "city_forecast_vs_actual.temperature_null_rate",
+      "passed": true,
+      "actual": 0.0,
+      "expected": "== 0.0"
+    },
+    {
+      "name": "city_forecast_vs_actual.time_span_hours",
+      "passed": true,
+      "actual": 8783,
+      "expected": ">= 160"
+    },
+    {
+      "name": "city_forecast_vs_actual.extended_row_threshold",
+      "passed": true,
+      "actual": 711504,
+      "expected": "> 50000"
+    },
+    {
+      "name": "city_forecast_vs_actual.forecast_validation_window_missing",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "city_current_snapshot.row_count",
+      "passed": true,
+      "actual": 81,
+      "expected": "== 81"
+    },
+    {
+      "name": "city_current_snapshot.province_count",
+      "passed": true,
+      "actual": 81,
+      "expected": "== 81"
+    },
+    {
+      "name": "city_current_snapshot.duplicates_city",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "city_current_snapshot.snapshot_time_missing",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "city_current_snapshot.shape_iso_nulls",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "province_map_metrics.row_count",
+      "passed": true,
+      "actual": 81,
+      "expected": "== 81"
+    },
+    {
+      "name": "province_map_metrics.duplicates_province",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "province_map_metrics.shape_iso_nulls",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "province_map_metrics.cams_avg_pm2p5_nulls",
+      "passed": true,
+      "actual": 0,
+      "expected": "< 81"
+    },
+    {
+      "name": "province_map_metrics.cams_legacy_alias_match",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "mobile_city_current_snapshot.row_count_positive",
+      "passed": true,
+      "actual": 81,
+      "expected": "> 0"
+    },
+    {
+      "name": "mobile_city_hourly_timeline.row_count_positive",
+      "passed": true,
+      "actual": 11745,
+      "expected": "> 0"
+    },
+    {
+      "name": "mobile_province_map_metrics.row_count_positive",
+      "passed": true,
+      "actual": 81,
+      "expected": "> 0"
+    },
+    {
+      "name": "historical_forecast_extended_manifest.files_failed",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "historical_forecast_extended_manifest.files_unmapped",
+      "passed": true,
+      "actual": 0,
+      "expected": "== 0"
+    },
+    {
+      "name": "historical_forecast_extended_manifest.city_count",
+      "passed": true,
+      "actual": 81,
+      "expected": "== 81"
+    },
+    {
+      "name": "historical_forecast_extended_manifest.rows_after_dedup",
+      "passed": true,
+      "actual": 711504,
+      "expected": "> 50000"
+    },
+    {
+      "name": "historical_forecast_extended_manifest.validated_min_city_count",
+      "passed": true,
+      "actual": 81,
+      "expected": "== 81"
+    },
+    {
+      "name": "historical_forecast_extended_manifest.time_bounds_present",
+      "passed": true,
+      "actual": {
+        "time_min": "2024-01-01T00:00",
+        "time_max": "2024-12-31T23:00"
+      },
+      "expected": "time_min and time_max are non-empty"
+    },
+    {
+      "name": "historical_forecast_extended_manifest.relative_output_paths",
+      "passed": true,
+      "actual": true,
+      "expected": "== True"
+    },
+    {
+      "name": "cams_manifest.available_months_nonempty",
+      "passed": true,
+      "actual": [
+        "2024_01",
+        "2024_02",
+        "2024_03",
+        "2024_04",
+        "2024_05",
+        "2024_06",
+        "2024_07",
+        "2024_08",
+        "2024_09",
+        "2024_10",
+        "2024_11",
+        "2024_12"
+      ],
+      "expected": "len > 0"
+    },
+    {
+      "name": "cams_manifest.combined_rows_positive",
+      "passed": true,
+      "actual": 651240,
+      "expected": "> 0"
+    },
+    {
+      "name": "cams_manifest.city_count",
+      "passed": true,
+      "actual": 81,
+      "expected": "== 81"
+    },
+    {
+      "name": "cams_manifest.monthly_rows_positive",
+      "passed": true,
+      "actual": {
+        "2024_01": 60264,
+        "2024_02": 56376,
+        "2024_03": 60264,
+        "2024_04": 58320,
+        "2024_05": 60264,
+        "2024_06": 58320,
+        "2024_07": 60264,
+        "2024_08": 60264,
+        "2024_09": 58320,
+        "2024_10": 60264,
+        "2024_11": 58320,
+        "2024_12": 60264
+      },
+      "expected": "all month row counts > 0"
+    },
+    {
+      "name": "cams_manifest.2024_01_expected_rows",
+      "passed": true,
+      "actual": 60264,
+      "expected": "== 60264"
+    }
+  ]
+}

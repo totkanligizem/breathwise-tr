@@ -1,0 +1,118 @@
+{
+  "generated_at_utc": "2026-04-07T10:43:08.875956+00:00",
+  "model": "MobileCityTimelinePoint",
+  "schema": {
+    "properties": {
+      "city_name": {
+        "title": "City Name",
+        "type": "string"
+      },
+      "province_name": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Province Name"
+      },
+      "time": {
+        "title": "Time",
+        "type": "string"
+      },
+      "forecast_temperature_2m": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Forecast Temperature 2M"
+      },
+      "forecast_weather_code": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Forecast Weather Code"
+      },
+      "forecast_precipitation_probability": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Forecast Precipitation Probability"
+      },
+      "forecast_wind_speed_10m": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Forecast Wind Speed 10M"
+      },
+      "aq_european_aqi": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq European Aqi"
+      },
+      "aq_pm2_5": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Pm2 5"
+      },
+      "aq_pm10": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Aq Pm10"
+      }
+    },
+    "required": [
+      "city_name",
+      "time"
+    ],
+    "title": "MobileCityTimelinePoint",
+    "type": "object"
+  }
+}

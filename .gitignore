@@ -1,0 +1,36 @@
+.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Node / Expo
+frontend/mobile_shell_starter/node_modules/
+frontend/mobile_shell_starter/.expo/
+frontend/mobile_shell_starter/dist/
+
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Local operational artifacts (generated, machine-specific)
+data/processed/api_logs/
+data/processed/alerts/
+data/processed/ops/
+data/processed/pipeline_runs/
+backend/*.log
+scripts/*.log
+
+# Large local data layers (do not track in git)
+data/raw/
+data/db/
+data/processed/cams/
+data/processed/geography/
+data/processed/marts/
+data/processed/views/
