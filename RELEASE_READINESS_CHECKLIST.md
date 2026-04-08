@@ -30,7 +30,7 @@ Canonical reference:
 
 ## 5) Share/Publish Artifacts
 - [ ] Contracts exported and version-checked
-- [ ] README and runbook updated for current release
+- [ ] README (TR) + README.eng.md + runbook updated for current release
 - [ ] Third-party source attribution included
 - [ ] Known limitations documented transparently
 - [ ] Share package sourced only from `data/processed/publish_exports/<tag>/`

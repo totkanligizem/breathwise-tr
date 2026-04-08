@@ -6,7 +6,6 @@ import { fetchCityCurrent, fetchCityTimeline } from "../api/endpoints";
 import { EmptyBlock } from "../components/EmptyBlock";
 import { ErrorBlock } from "../components/ErrorBlock";
 import { LoadingBlock } from "../components/LoadingBlock";
-import { MetricCard } from "../components/MetricCard";
 import { WeatherMoodBackdrop } from "../components/WeatherMoodBackdrop";
 import {
   HourlyIconStrip,
@@ -64,7 +63,7 @@ export function CityCurrentScreen({ locale, t, client, localizationMeta }: BaseS
 
         if (!effectiveQuery) {
           const names = prioritizeCityNames(uniqueRows.map((row) => row.cityName).filter(Boolean));
-          setQuickCities(names.slice(0, 10));
+          setQuickCities(names.slice(0, 8));
         }
       } catch (fetchError) {
         setError(fetchError instanceof Error ? fetchError.message : "Request failed.");
@@ -117,8 +116,8 @@ export function CityCurrentScreen({ locale, t, client, localizationMeta }: BaseS
     };
   }, [client, featured]);
 
-  const topPolluted = useMemo(() => rows.slice(0, 5), [rows]);
-  const comparisonRows = useMemo(() => rows.slice(0, 9), [rows]);
+  const topPolluted = useMemo(() => rows.slice(0, 4), [rows]);
+  const comparisonRows = useMemo(() => rows.slice(0, 6), [rows]);
   const featuredToken = cityToken(featured?.cityName ?? "");
 
   const timelineTemps = useMemo(() => heroTimeline.map((row) => row.temperatureC), [heroTimeline]);
@@ -146,10 +145,6 @@ export function CityCurrentScreen({ locale, t, client, localizationMeta }: BaseS
     if (!normalizedProvince || normalizedProvince === normalizedCity) return null;
     return formatCityName(featured.provinceName, locale);
   }, [featured, locale]);
-  const regionValue = useMemo(() => {
-    if (featuredProvinceLabel) return featuredProvinceLabel;
-    return locale.startsWith("tr") ? "Türkiye" : "Turkey";
-  }, [featuredProvinceLabel, locale]);
 
   return (
     <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -294,12 +289,6 @@ export function CityCurrentScreen({ locale, t, client, localizationMeta }: BaseS
                 value={formatPm(featured.pm25)}
                 tone="warning"
               />
-              <StatPill
-                icon="blur-linear"
-                label={t("ui.city.timeline.metric_pm10", "PM10")}
-                value={formatPm(featured.pm10)}
-                tone="warning"
-              />
             </View>
 
             {heroTimeline.length > 0 ? (
@@ -319,17 +308,6 @@ export function CityCurrentScreen({ locale, t, client, localizationMeta }: BaseS
                   </View>
                   <ValueStrip values={timelineAqi} colorScale="aqi" />
                 </View>
-
-                <HourlyIconStrip
-                  entries={heroTimeline.map((row) => ({
-                    time: row.time,
-                    temperatureC: row.temperatureC,
-                    aqi: row.aqi,
-                    weatherCode: row.weatherCode,
-                    precipitationProbability: row.precipitationProbability,
-                  }))}
-                  subtitle={t("ui.city.current.hourly_glance", "Hourly glance")}
-                />
               </View>
             ) : null}
 
@@ -337,6 +315,21 @@ export function CityCurrentScreen({ locale, t, client, localizationMeta }: BaseS
               <Text style={styles.timelineLoadingText}>{t("ui.city.current.timeline_loading", "Loading hourly insight")}</Text>
             ) : null}
           </View>
+        </View>
+      ) : null}
+
+      {!loading && !error && heroTimeline.length > 0 ? (
+        <View style={styles.glanceCard}>
+          <HourlyIconStrip
+            entries={heroTimeline.map((row) => ({
+              time: row.time,
+              temperatureC: row.temperatureC,
+              aqi: row.aqi,
+              weatherCode: row.weatherCode,
+              precipitationProbability: row.precipitationProbability,
+            }))}
+            subtitle={t("ui.city.current.hourly_glance", "Hourly glance")}
+          />
         </View>
       ) : null}
 
@@ -412,25 +405,6 @@ export function CityCurrentScreen({ locale, t, client, localizationMeta }: BaseS
         </View>
       ) : null}
 
-      {!loading && !error && featured ? (
-        <View style={styles.metaGrid}>
-          <MetricCard
-            title={t("ui.city.current.kpi_region", "Region")}
-            value={regionValue}
-            subtitle={t("ui.city.current.featured", "Featured City")}
-            icon="map-marker-outline"
-            compact
-          />
-          <MetricCard
-            title={t("ui.city.current.updated_badge", "Last Update")}
-            value={formatDateTime(featured.updatedAt, locale)}
-            subtitle={t("ui.common.updated_at", "Updated At")}
-            tone="info"
-            icon="clock-outline"
-            compact
-          />
-        </View>
-      ) : null}
     </ScrollView>
   );
 }
@@ -497,7 +471,7 @@ const styles = StyleSheet.create({
   content: {
     paddingHorizontal: spacing.lg,
     paddingBottom: spacing.xxl,
-    gap: spacing.md,
+    gap: spacing.sm,
   },
   titleWrap: {
     gap: spacing.xxs,
@@ -515,10 +489,10 @@ const styles = StyleSheet.create({
   },
   searchCard: {
     borderRadius: radius.lg,
-    borderColor: "#3A6288",
+    borderColor: "#416C93",
     borderWidth: 1,
-    backgroundColor: "#10314B",
-    padding: spacing.sm,
+    backgroundColor: "#102D45",
+    padding: spacing.xs,
     gap: spacing.xs,
     ...shadow.card,
   },
@@ -609,14 +583,14 @@ const styles = StyleSheet.create({
     borderColor: "#46729A",
     borderWidth: 1,
     backgroundColor: colors.darkPanel,
-    padding: spacing.md,
+    padding: spacing.sm,
     gap: spacing.xs,
     position: "relative",
     overflow: "hidden",
     ...shadow.floating,
   },
   heroContent: {
-    gap: spacing.md,
+    gap: spacing.sm,
     zIndex: 1,
   },
   heroTop: {
@@ -635,8 +609,8 @@ const styles = StyleSheet.create({
   },
   heroCity: {
     color: colors.darkTextOnPanel,
-    fontSize: 30,
-    lineHeight: 34,
+    fontSize: 28,
+    lineHeight: 31,
     fontWeight: "800",
     fontFamily: typography.display,
   },
@@ -651,7 +625,7 @@ const styles = StyleSheet.create({
   },
   heroTemp: {
     color: colors.darkTextOnPanel,
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: "800",
     fontFamily: typography.display,
   },
@@ -745,13 +719,13 @@ const styles = StyleSheet.create({
     borderColor: "#365A7D",
     borderWidth: 1,
     backgroundColor: "#112E45",
-    padding: spacing.md,
+    padding: spacing.sm,
     gap: spacing.sm,
     ...shadow.card,
   },
   panelTitle: {
     color: colors.textPrimary,
-    fontSize: typography.size.bodyLg,
+    fontSize: typography.size.body,
     fontWeight: "800",
     fontFamily: typography.heading,
   },
@@ -806,7 +780,7 @@ const styles = StyleSheet.create({
     fontFamily: typography.body,
   },
   rankRight: {
-    width: 92,
+    width: 88,
     alignItems: "flex-end",
     gap: 4,
   },
@@ -833,12 +807,12 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
   },
   cityTile: {
-    width: "31.5%",
-    minWidth: 108,
+    width: "48%",
+    minWidth: 132,
     borderRadius: radius.sm,
     borderWidth: 1,
     borderColor: "#355B7D",
-    backgroundColor: "#1B3A57",
+    backgroundColor: "#1A3956",
     padding: spacing.sm,
     gap: 4,
     ...shadow.card,
@@ -876,9 +850,12 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     fontFamily: typography.display,
   },
-  metaGrid: {
-    flexDirection: "row",
-    gap: spacing.sm,
-    flexWrap: "wrap",
+  glanceCard: {
+    borderRadius: radius.md,
+    borderColor: "#365B7D",
+    borderWidth: 1,
+    backgroundColor: "#122F46",
+    padding: spacing.sm,
+    ...shadow.card,
   },
 });

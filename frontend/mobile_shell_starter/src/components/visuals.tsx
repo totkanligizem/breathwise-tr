@@ -23,7 +23,7 @@ export function MiniLineChart({
   values,
   height = 86,
   lineColor = colors.accent,
-  fillColor = "rgba(59, 169, 255, 0.18)",
+  fillColor = "rgba(59, 169, 255, 0.14)",
 }: MiniLineChartProps) {
   const [layoutWidth, setLayoutWidth] = useState<number>(0);
   const width = layoutWidth > 0 ? layoutWidth : 280;
@@ -263,22 +263,45 @@ export function weatherMoodForConditions(
   temperatureC: number | null,
   precipitationProbability: number | null
 ): WeatherMood {
+  const hasPrecipSignal =
+    precipitationProbability !== null && !Number.isNaN(precipitationProbability);
+  const precip = hasPrecipSignal ? (precipitationProbability as number) : null;
+
   if (weatherCode !== null && !Number.isNaN(weatherCode)) {
     if (weatherCode >= 95 && weatherCode <= 99) return "storm";
     if ((weatherCode >= 71 && weatherCode <= 77) || weatherCode === 85 || weatherCode === 86) return "snow";
     if (
-      (weatherCode >= 51 && weatherCode <= 67) ||
-      (weatherCode >= 80 && weatherCode <= 82)
-    )
+      weatherCode === 63 ||
+      weatherCode === 65 ||
+      weatherCode === 66 ||
+      weatherCode === 67 ||
+      weatherCode === 81 ||
+      weatherCode === 82
+    ) {
+      if (precip !== null && precip < 35) return "cloudy";
       return "rain";
+    }
+    if (
+      (weatherCode >= 51 && weatherCode <= 57) ||
+      weatherCode === 80
+    ) {
+      if (precip !== null && precip >= 72) return "rain";
+      return "cloudy";
+    }
     if ((weatherCode >= 1 && weatherCode <= 3) || weatherCode === 45 || weatherCode === 48) return "cloudy";
-    if (weatherCode === 0) return "sunny";
+    if (weatherCode === 0) {
+      if (precip !== null && precip >= 68) return "cloudy";
+      return "sunny";
+    }
   }
 
-  if (precipitationProbability !== null && !Number.isNaN(precipitationProbability)) {
-    if (precipitationProbability >= 80) return "rain";
-    if (precipitationProbability >= 45) return "cloudy";
-    if (precipitationProbability <= 20 && temperatureC !== null && !Number.isNaN(temperatureC) && temperatureC >= 27) {
+  if (precip !== null) {
+    if (precip >= 92) {
+      if (temperatureC !== null && !Number.isNaN(temperatureC) && temperatureC <= 1) return "snow";
+      return "rain";
+    }
+    if (precip >= 55) return "cloudy";
+    if (precip <= 18 && temperatureC !== null && !Number.isNaN(temperatureC) && temperatureC >= 25) {
       return "sunny";
     }
   }
@@ -295,7 +318,7 @@ export function weatherIconForConditions(
   const mood = weatherMoodForConditions(weatherCode, temperatureC, precipitationProbability);
   if (aqi !== null && aqi >= 130) return { name: "weather-windy-variant", color: colors.aqiHazard };
   if (mood === "storm") return { name: "weather-lightning-rainy", color: colors.warning };
-  if (mood === "rain") return { name: "weather-pouring", color: colors.info };
+  if (mood === "rain") return { name: "weather-rainy", color: colors.info };
   if (mood === "snow") return { name: "snowflake", color: colors.heatCool };
   if (mood === "sunny") return { name: "white-balance-sunny", color: colors.heatWarm };
   if (mood === "neutral") return { name: "weather-cloudy-clock", color: colors.textSecondary };
@@ -331,7 +354,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     borderWidth: 1,
     borderColor: colors.border,
-    backgroundColor: colors.surfaceMuted,
+    backgroundColor: "#18334D",
     overflow: "hidden",
     position: "relative",
     ...shadow.card,
@@ -342,7 +365,7 @@ const styles = StyleSheet.create({
     right: 0,
     top: 8,
     height: 1,
-    backgroundColor: "#35597E",
+    backgroundColor: "rgba(95, 138, 176, 0.28)",
   },
   gridLineMid: {
     top: "50%",
@@ -353,28 +376,28 @@ const styles = StyleSheet.create({
   },
   fillBar: {
     position: "absolute",
-    width: 6,
+    width: 4,
     borderTopLeftRadius: 4,
     borderTopRightRadius: 4,
-    opacity: 0.85,
+    opacity: 0.58,
   },
   segment: {
     position: "absolute",
-    height: 2.2,
+    height: 1.8,
     borderRadius: radius.pill,
   },
   dot: {
     position: "absolute",
-    width: 5.6,
-    height: 5.6,
+    width: 4.6,
+    height: 4.6,
     borderRadius: radius.pill,
     backgroundColor: colors.canvas,
-    borderWidth: 1.5,
+    borderWidth: 1.2,
   },
   stripWrap: {
     flexDirection: "row",
     alignItems: "flex-end",
-    gap: 3,
+    gap: 2,
     borderRadius: radius.sm,
     borderWidth: 1,
     borderColor: colors.border,
@@ -387,8 +410,8 @@ const styles = StyleSheet.create({
     flex: 1,
     borderTopLeftRadius: 3,
     borderTopRightRadius: 3,
-    opacity: 0.88,
-    minHeight: 7,
+    opacity: 0.78,
+    minHeight: 5,
   },
   hourlyWrap: {
     gap: spacing.xs,

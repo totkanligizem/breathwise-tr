@@ -141,8 +141,8 @@ export function CityTimelineScreen({ locale, t, client }: BaseScreenProps) {
   }, [displayRows, rows]);
   const modeLabel = useMemo(() => timelineModeLabel(timelineMode, t), [timelineMode, t]);
   const timelineInsight = useMemo(() => buildTimelineInsight(displayRows, timelineMode, t), [displayRows, timelineMode, t]);
-  const chartHeight = timelineMode === "hourly" ? 86 : 72;
-  const pmStripHeight = timelineMode === "hourly" ? 52 : 44;
+  const chartHeight = timelineMode === "hourly" ? 82 : 68;
+  const pmStripHeight = timelineMode === "hourly" ? 44 : 34;
   const compactTrendView = timelineMode !== "hourly" && displayRows.length <= 5;
   const tempMin = useMemo(() => minNumber(tempSeries), [tempSeries]);
   const tempMax = useMemo(() => maxNumber(tempSeries), [tempSeries]);
@@ -152,12 +152,16 @@ export function CityTimelineScreen({ locale, t, client }: BaseScreenProps) {
     const query = normalizeCityToken(citySearch);
     if (query.length > 0) {
       const filtered = cities.filter((name) => normalizeCityToken(name).includes(query));
-      if (filtered.length > 0) return filtered.slice(0, 6);
+      if (filtered.length > 0) return filtered.slice(0, 5);
       return selectedCity ? [selectedCity] : [];
     }
     const prioritized = selectedCity ? [selectedCity, ...cities.filter((name) => name !== selectedCity)] : cities;
-    return prioritized.slice(0, 6);
+    return prioritized.slice(0, 5);
   }, [cities, citySearch, selectedCity]);
+  const weeklyHighlights = useMemo(
+    () => (timelineMode === "weekly" ? buildWeeklyHighlights(displayRows, locale, t) : null),
+    [displayRows, locale, t, timelineMode]
+  );
 
   return (
     <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -328,8 +332,33 @@ export function CityTimelineScreen({ locale, t, client }: BaseScreenProps) {
             />
           </View>
 
+          {timelineMode === "weekly" && weeklyHighlights ? (
+            <View style={styles.weeklySummaryCard}>
+              <Text style={styles.weeklySummaryTitle}>{t("ui.city.timeline.weekly_summary", "Weekly Highlights")}</Text>
+              <Text style={styles.weeklySummaryInsight}>{weeklyHighlights.insight}</Text>
+              <View style={styles.weeklySummaryGrid}>
+                <View style={styles.weeklySummaryTile}>
+                  <Text style={styles.weeklySummaryLabel}>{t("ui.city.timeline.best_window", "Best Air Window")}</Text>
+                  <Text style={styles.weeklySummaryValue}>{weeklyHighlights.bestAqiLabel}</Text>
+                </View>
+                <View style={styles.weeklySummaryTile}>
+                  <Text style={styles.weeklySummaryLabel}>{t("ui.city.timeline.risk_window", "Highest Pressure")}</Text>
+                  <Text style={styles.weeklySummaryValue}>{weeklyHighlights.worstAqiLabel}</Text>
+                </View>
+                <View style={styles.weeklySummaryTile}>
+                  <Text style={styles.weeklySummaryLabel}>{t("ui.city.timeline.temp_span", "Temperature Span")}</Text>
+                  <Text style={styles.weeklySummaryValue}>{weeklyHighlights.tempSpanLabel}</Text>
+                </View>
+              </View>
+            </View>
+          ) : null}
+
           <View style={styles.timelineCard}>
-            <Text style={styles.timelineTitle}>{t("ui.city.timeline.day_blocks", "Day Blocks")}</Text>
+            <Text style={styles.timelineTitle}>
+              {timelineMode === "weekly"
+                ? t("ui.city.timeline.week_blocks", "Week Blocks")
+                : t("ui.city.timeline.day_blocks", "Day Blocks")}
+            </Text>
             <Text style={styles.timelineSubtitle}>{stats.rangeLabel}</Text>
 
             <View style={styles.timelineBody}>
@@ -338,7 +367,11 @@ export function CityTimelineScreen({ locale, t, client }: BaseScreenProps) {
                   <View style={styles.dayHeader}>
                     <Text style={styles.dayLabel}>{group.dayLabel}</Text>
                     <View style={styles.dayMetaWrap}>
-                      <Text style={styles.dayMetaText}>{`${group.rows.length} ${timelineMode === "hourly" ? "h" : t("ui.city.timeline.points", "pts")}`}</Text>
+                      <Text style={styles.dayMetaText}>
+                        {timelineMode === "hourly"
+                          ? `${group.rows.length} h`
+                          : t("ui.city.timeline.summary", "summary")}
+                      </Text>
                       <Text style={styles.dayMetaText}>{`AQI ${formatNumber(dayAvgAqi(group.rows))}`}</Text>
                     </View>
                   </View>
@@ -350,6 +383,28 @@ export function CityTimelineScreen({ locale, t, client }: BaseScreenProps) {
                       row.aqi,
                       row.precipitationProbability
                     );
+
+                    if (timelineMode !== "hourly") {
+                      return (
+                        <View key={row.time} style={styles.periodRow}>
+                          <View style={styles.periodRowTop}>
+                            <View style={styles.periodTitleWrap}>
+                              <MaterialCommunityIcons name={rowWeatherIcon.name} size={15} color={rowWeatherIcon.color} />
+                              <Text style={styles.periodTitle}>{formatTimelinePointLabel(row.time, timelineMode, locale)}</Text>
+                            </View>
+                            <Text style={styles.periodTemp}>{formatTemp(row.temperatureC)}</Text>
+                          </View>
+                          <View style={styles.periodRowBottom}>
+                            <View style={[styles.metricPill, styles.metricPillAqi]}>
+                              <MaterialCommunityIcons name="waves-arrow-up" size={14} color={getAqiColor(row.aqi)} />
+                              <Text style={styles.metricPillValue}>{`AQI ${formatNumber(row.aqi)}`}</Text>
+                            </View>
+                            <Text style={styles.periodMetaText}>{`PM2.5 ${formatPm(row.pm25)} · ${t("ui.city.timeline.metric_wind", "Wind")} ${formatWind(row.windSpeed10m)}`}</Text>
+                          </View>
+                        </View>
+                      );
+                    }
+
                     return (
                       <View key={row.time} style={styles.timelineRow}>
                         <View style={styles.timelineRowLeft}>
@@ -505,6 +560,46 @@ function dayAvgAqi(rows: TimelinePoint[]): number | null {
   return values.reduce((acc, cur) => acc + cur, 0) / values.length;
 }
 
+function buildWeeklyHighlights(
+  rows: TimelinePoint[],
+  locale: string,
+  t: (key: string, fallback?: string) => string
+): {
+  insight: string;
+  bestAqiLabel: string;
+  worstAqiLabel: string;
+  tempSpanLabel: string;
+} {
+  if (rows.length === 0) {
+    return {
+      insight: t("ui.city.timeline.insight_missing", "Not enough points yet for a stable trend insight."),
+      bestAqiLabel: "—",
+      worstAqiLabel: "—",
+      tempSpanLabel: "—",
+    };
+  }
+
+  const withAqi = rows.filter((row) => row.aqi !== null && !Number.isNaN(row.aqi));
+  const withTemp = rows.filter((row) => row.temperatureC !== null && !Number.isNaN(row.temperatureC));
+  const bestAqi = withAqi.length > 0 ? withAqi.reduce((best, row) => ((row.aqi ?? Infinity) < (best.aqi ?? Infinity) ? row : best), withAqi[0]) : null;
+  const worstAqi = withAqi.length > 0 ? withAqi.reduce((worst, row) => ((row.aqi ?? -Infinity) > (worst.aqi ?? -Infinity) ? row : worst), withAqi[0]) : null;
+  const tempValues = withTemp.map((row) => row.temperatureC as number);
+  const minTemp = tempValues.length > 0 ? Math.min(...tempValues) : null;
+  const maxTemp = tempValues.length > 0 ? Math.max(...tempValues) : null;
+
+  const bestAqiLabel =
+    bestAqi !== null ? `${formatWeekLabel(bestAqi.time, locale)} · AQI ${formatNumber(bestAqi.aqi)}` : "—";
+  const worstAqiLabel =
+    worstAqi !== null ? `${formatWeekLabel(worstAqi.time, locale)} · AQI ${formatNumber(worstAqi.aqi)}` : "—";
+  const tempSpanLabel = `${formatTemp(minTemp)} → ${formatTemp(maxTemp)}`;
+
+  const insight = `${t("ui.city.timeline.mode_weekly", "Weekly")}: ${t(
+    "ui.city.timeline.weekly_insight_prefix",
+    "Air quality pressure varies across weeks; use highlighted windows for planning."
+  )}`;
+  return { insight, bestAqiLabel, worstAqiLabel, tempSpanLabel };
+}
+
 function formatDay(day: string, locale?: string): string {
   const d = new Date(day);
   if (Number.isNaN(d.getTime())) return day;
@@ -630,8 +725,8 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     borderColor: "#395E83",
     borderWidth: 1,
-    backgroundColor: "#112E45",
-    padding: spacing.sm,
+    backgroundColor: "#102B41",
+    padding: spacing.xs,
     gap: spacing.xs,
     ...shadow.card,
   },
@@ -656,7 +751,7 @@ const styles = StyleSheet.create({
     fontFamily: typography.heading,
   },
   citySearchInput: {
-    backgroundColor: "#0E253A",
+    backgroundColor: "#0D2337",
     borderColor: "#466B90",
     borderWidth: 1,
     borderRadius: radius.sm,
@@ -675,9 +770,9 @@ const styles = StyleSheet.create({
     gap: 4,
     borderRadius: radius.pill,
     borderWidth: 1,
-    borderColor: "#476F94",
+    borderColor: "#4F77A0",
     backgroundColor: "#17344D",
-    padding: 3,
+    padding: 2,
   },
   modeChip: {
     flex: 1,
@@ -686,7 +781,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: "transparent",
     paddingHorizontal: spacing.sm,
-    paddingVertical: 7,
+    paddingVertical: 6,
     alignItems: "center",
   },
   modeChipActive: {
@@ -709,7 +804,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: "rgba(23, 56, 83, 0.88)",
     paddingHorizontal: spacing.sm,
-    paddingVertical: 6,
+    paddingVertical: 5,
   },
   chipActive: {
     borderColor: "#67BAFE",
@@ -777,7 +872,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     borderColor: "#365A7D",
     borderWidth: 1,
-    backgroundColor: "#122F46",
+    backgroundColor: "#112B42",
     padding: spacing.sm,
     gap: spacing.xs,
     zIndex: 1,
@@ -799,7 +894,55 @@ const styles = StyleSheet.create({
     fontSize: typography.size.body,
     fontWeight: "700",
     fontFamily: typography.heading,
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  weeklySummaryCard: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: "#3D6388",
+    backgroundColor: "#112E45",
+    padding: spacing.sm,
+    gap: spacing.xs,
+    ...shadow.card,
+  },
+  weeklySummaryTitle: {
+    color: colors.textPrimary,
+    fontSize: typography.size.bodyLg,
+    fontWeight: "800",
+    fontFamily: typography.heading,
+  },
+  weeklySummaryInsight: {
+    color: colors.textSecondary,
+    fontSize: typography.size.bodySm,
+    lineHeight: 18,
+    fontFamily: typography.body,
+  },
+  weeklySummaryGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: spacing.xs,
+  },
+  weeklySummaryTile: {
+    flex: 1,
+    minWidth: 150,
+    borderRadius: radius.sm,
+    borderWidth: 1,
+    borderColor: "#33597C",
+    backgroundColor: "#17344D",
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    gap: 3,
+  },
+  weeklySummaryLabel: {
+    color: colors.textTertiary,
+    fontSize: typography.size.caption,
+    fontFamily: typography.body,
+  },
+  weeklySummaryValue: {
+    color: colors.textPrimary,
+    fontSize: typography.size.bodySm,
+    fontWeight: "700",
+    fontFamily: typography.heading,
   },
   statsGrid: {
     flexDirection: "row",
@@ -834,7 +977,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     borderWidth: 1,
     backgroundColor: colors.surfaceMuted,
-    padding: spacing.sm,
+    padding: spacing.xs,
     gap: spacing.xs,
   },
   dayHeader: {
@@ -919,6 +1062,51 @@ const styles = StyleSheet.create({
     gap: 1,
   },
   metricStackText: {
+    color: colors.textSecondary,
+    fontSize: typography.size.caption,
+    fontFamily: typography.body,
+  },
+  periodRow: {
+    borderRadius: radius.sm,
+    borderColor: "#33597C",
+    borderWidth: 1,
+    backgroundColor: "#193850",
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    gap: spacing.xs,
+  },
+  periodRowTop: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: spacing.sm,
+  },
+  periodTitleWrap: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  periodTitle: {
+    color: colors.textPrimary,
+    fontSize: typography.size.bodySm,
+    fontWeight: "700",
+    fontFamily: typography.heading,
+  },
+  periodTemp: {
+    color: colors.textPrimary,
+    fontSize: typography.size.body,
+    fontWeight: "800",
+    fontFamily: typography.display,
+  },
+  periodRowBottom: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: spacing.sm,
+  },
+  periodMetaText: {
+    flex: 1,
+    textAlign: "right",
     color: colors.textSecondary,
     fontSize: typography.size.caption,
     fontFamily: typography.body,

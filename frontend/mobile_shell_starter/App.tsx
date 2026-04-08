@@ -23,9 +23,8 @@ function RootShell() {
   const { locale, localizationMeta, t, apiClient } = useLocaleContext();
   const [screenId, setScreenId] = useState<ScreenId>("city_current_overview");
   const { width } = useWindowDimensions();
-  const targetMax = width >= 1080 ? 840 : layout.maxContentWidth;
+  const targetMax = width >= 1080 ? 820 : layout.maxContentWidth;
   const contentWidth = Math.min(targetMax, Math.max(340, width - spacing.md * 2));
-  const showSignal = screenId !== "settings_locale";
 
   const { screenTitle, screenSubtitle } = useMemo(() => {
     const found = SCREEN_MAP.find((item) => item.id === screenId);
@@ -50,12 +49,6 @@ function RootShell() {
           </View>
           <Text style={styles.screenTitle}>{screenTitle}</Text>
           <Text style={styles.screenSubtitle}>{screenSubtitle}</Text>
-          {showSignal ? (
-            <View style={styles.headerSignalRow}>
-              <View style={styles.signalDot} />
-              <Text style={styles.headerSignalText}>{t("ui.app.signal", "Live environmental intelligence")}</Text>
-            </View>
-          ) : null}
         </View>
 
         <View style={styles.body}>
@@ -117,9 +110,9 @@ const styles = StyleSheet.create({
     marginHorizontal: spacing.sm,
     marginTop: spacing.xs,
     paddingHorizontal: spacing.lg,
-    paddingTop: spacing.xs,
-    paddingBottom: spacing.xs,
-    gap: 6,
+    paddingTop: 6,
+    paddingBottom: 6,
+    gap: 4,
     borderRadius: radius.lg,
     borderColor: "#3E668E",
     borderWidth: 1,
@@ -146,7 +139,7 @@ const styles = StyleSheet.create({
   },
   screenTitle: {
     color: colors.darkTextOnPanel,
-    fontSize: 21,
+    fontSize: 20,
     fontWeight: "800",
     fontFamily: typography.display,
   },
@@ -154,25 +147,6 @@ const styles = StyleSheet.create({
     color: "#BDD5EC",
     fontSize: typography.size.bodySm,
     fontWeight: "500",
-    fontFamily: typography.body,
-  },
-  headerSignalRow: {
-    alignSelf: "flex-start",
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
-    marginTop: 1,
-  },
-  signalDot: {
-    width: 6,
-    height: 6,
-    borderRadius: radius.pill,
-    backgroundColor: colors.aqiGood,
-  },
-  headerSignalText: {
-    color: "#B7D3EA",
-    fontSize: 11,
-    fontWeight: "600",
     fontFamily: typography.body,
   },
   body: {

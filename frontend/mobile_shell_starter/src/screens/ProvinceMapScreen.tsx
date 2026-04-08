@@ -127,11 +127,13 @@ export function ProvinceMapScreen({ locale, t, client, localizationMeta }: BaseS
           ) : null}
         </View>
         <Text style={styles.heroInsight}>{mapInsight}</Text>
-
-        <View style={styles.heroAlertRow}>
-          <Text style={styles.heroAlertSummary}>
-            {`${t("ui.province.map.aq_alert_count", "AQ Alerts")}: ${aqAlertCount} · ${t("ui.province.map.heat_alert_count", "Heat Alerts")}: ${heatAlertCount}`}
-          </Text>
+        <View style={styles.heroPillRow}>
+          <View style={[styles.heroPill, styles.heroPillAq]}>
+            <Text style={styles.heroPillText}>{`${t("ui.province.map.aq_alert_count", "AQ Alerts")}: ${aqAlertCount}`}</Text>
+          </View>
+          <View style={[styles.heroPill, styles.heroPillHeat]}>
+            <Text style={styles.heroPillText}>{`${t("ui.province.map.heat_alert_count", "Heat Alerts")}: ${heatAlertCount}`}</Text>
+          </View>
         </View>
 
         <View style={styles.sortOptions}>
@@ -319,8 +321,8 @@ const styles = StyleSheet.create({
     borderColor: "#3E668E",
     borderWidth: 1,
     backgroundColor: colors.darkPanel,
-    padding: spacing.sm,
-    gap: spacing.sm,
+    padding: spacing.xs,
+    gap: spacing.xs,
     ...shadow.floating,
   },
   heroTop: {
@@ -363,17 +365,32 @@ const styles = StyleSheet.create({
   heroInsight: {
     color: "#DAEAF9",
     fontSize: typography.size.bodySm,
-    lineHeight: 18,
+    lineHeight: 17,
     fontFamily: typography.body,
   },
-  heroAlertRow: {
+  heroPillRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.xs,
+    flexWrap: "wrap",
+    gap: 6,
   },
-  heroAlertSummary: {
+  heroPill: {
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 5,
+  },
+  heroPillAq: {
+    borderColor: "#5A6D43",
+    backgroundColor: "#223821",
+  },
+  heroPillHeat: {
+    borderColor: "#7D6040",
+    backgroundColor: "#3A2E1F",
+  },
+  heroPillText: {
     color: "#DFECF8",
-    fontSize: typography.size.bodySm,
+    fontSize: typography.size.caption,
     fontWeight: "700",
     fontFamily: typography.body,
   },
@@ -384,7 +401,7 @@ const styles = StyleSheet.create({
     borderColor: "#4B7296",
     borderWidth: 1,
     backgroundColor: "#17344D",
-    padding: 3,
+    padding: 2,
   },
   sortChip: {
     borderRadius: radius.pill,
@@ -393,7 +410,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: "transparent",
     paddingHorizontal: spacing.sm,
-    paddingVertical: 7,
+    paddingVertical: 6,
     alignItems: "center",
   },
   sortChipActive: {
@@ -417,7 +434,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   mapPanel: {
-    flex: 1.3,
+    flex: 1.45,
     borderRadius: radius.md,
     borderColor: colors.border,
     borderWidth: 1,
@@ -487,7 +504,7 @@ const styles = StyleSheet.create({
     fontFamily: typography.body,
   },
   detailPanel: {
-    flex: 1,
+    flex: 0.95,
     borderRadius: radius.md,
     borderColor: colors.border,
     borderWidth: 1,
@@ -573,7 +590,8 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     borderWidth: 1,
     backgroundColor: colors.surfaceMuted,
-    padding: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
     gap: spacing.xs,
   },
   rankHead: {
@@ -602,7 +620,7 @@ const styles = StyleSheet.create({
   },
   rankBarTrack: {
     width: "100%",
-    height: 6,
+    height: 5,
     borderRadius: radius.pill,
     backgroundColor: "#244564",
     overflow: "hidden",

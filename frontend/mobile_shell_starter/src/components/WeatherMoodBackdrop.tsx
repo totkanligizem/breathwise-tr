@@ -9,7 +9,7 @@ type Props = {
 };
 
 export function WeatherMoodBackdrop({ mood }: Props) {
-  const rainDrops = useMemo(() => (mood === "storm" ? 18 : 12), [mood]);
+  const rainDrops = useMemo(() => (mood === "storm" ? 14 : 8), [mood]);
   const rainValuesRef = useRef<Animated.Value[]>([]);
   const sunPulse = useRef(new Animated.Value(0)).current;
   const cloudDrift = useRef(new Animated.Value(0)).current;
@@ -29,7 +29,7 @@ export function WeatherMoodBackdrop({ mood }: Props) {
             Animated.delay(index * 60),
             Animated.timing(value, {
               toValue: 1,
-              duration: mood === "storm" ? 720 + index * 18 : 1080 + index * 22,
+              duration: mood === "storm" ? 860 + index * 22 : 1220 + index * 28,
               easing: Easing.linear,
               useNativeDriver: true,
             }),
@@ -204,7 +204,7 @@ export function WeatherMoodBackdrop({ mood }: Props) {
                 mood === "storm" ? styles.rainDropStorm : null,
                 {
                   left: `${(index * 7 + (index % 3) * 18) % 100}%`,
-                  opacity: mood === "storm" ? 0.5 : 0.34,
+                  opacity: mood === "storm" ? 0.44 : 0.28,
                   transform: [
                     {
                       translateY: value.interpolate({
@@ -237,18 +237,18 @@ const styles = StyleSheet.create({
   rainDrop: {
     position: "absolute",
     top: -50,
-    width: 2,
-    height: 28,
+    width: 1.8,
+    height: 24,
     borderRadius: radius.pill,
-    backgroundColor: "rgba(127,212,255,0.86)",
+    backgroundColor: "rgba(130,218,255,0.72)",
   },
   rainDropStorm: {
-    width: 2.4,
-    backgroundColor: "rgba(181,227,255,0.96)",
+    width: 2.2,
+    backgroundColor: "rgba(186,230,255,0.88)",
   },
   rainSheen: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(42, 132, 196, 0.12)",
+    backgroundColor: "rgba(35, 138, 214, 0.08)",
   },
   sunLayer: {
     ...StyleSheet.absoluteFillObject,
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
     width: 230,
     height: 230,
     borderRadius: radius.pill,
-    backgroundColor: "rgba(255,196,84,0.26)",
+    backgroundColor: "rgba(255,204,98,0.30)",
     marginTop: -120,
     marginRight: -84,
   },
@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
     width: 84,
     height: 84,
     borderRadius: radius.pill,
-    backgroundColor: "rgba(255,215,126,0.52)",
+    backgroundColor: "rgba(255,220,136,0.58)",
     top: 10,
     right: 16,
   },
@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
   cloudBlob: {
     position: "absolute",
     borderRadius: radius.pill,
-    backgroundColor: "rgba(159,216,255,0.28)",
+    backgroundColor: "rgba(156,220,255,0.30)",
   },
   cloudBlobLarge: {
     width: 180,
@@ -299,7 +299,7 @@ const styles = StyleSheet.create({
   neutralGlow: {
     position: "absolute",
     borderRadius: radius.pill,
-    backgroundColor: "rgba(88, 176, 244, 0.2)",
+    backgroundColor: "rgba(94, 189, 255, 0.22)",
   },
   neutralGlowLarge: {
     width: 220,
@@ -312,7 +312,7 @@ const styles = StyleSheet.create({
     height: 90,
     bottom: -20,
     left: -24,
-    backgroundColor: "rgba(75, 156, 226, 0.16)",
+    backgroundColor: "rgba(70, 165, 240, 0.18)",
   },
   snowLayer: {
     ...StyleSheet.absoluteFillObject,

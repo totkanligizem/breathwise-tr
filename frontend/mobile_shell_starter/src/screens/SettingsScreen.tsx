@@ -25,7 +25,7 @@ export function SettingsScreen({ t }: BaseScreenProps) {
           </View>
         </View>
 
-        <Text style={styles.heroMain}>{t("ui.settings.personalization_subtitle", "Calm visuals, clear language, and trustworthy weather insights for every session")}</Text>
+        <Text style={styles.heroMain}>{t("ui.settings.personalization_subtitle", "Choose a calm, readable experience with trustworthy weather and air-quality storytelling.")}</Text>
       </View>
 
       <View style={styles.sectionCard}>
@@ -40,7 +40,7 @@ export function SettingsScreen({ t }: BaseScreenProps) {
             return (
               <Pressable key={item} style={[styles.localeChip, active ? styles.localeChipActive : null]} onPress={() => setLocale(item)}>
                 <Text numberOfLines={1} style={[styles.localeText, active ? styles.localeTextActive : null]}>
-                  {item === "tr-TR" ? t("ui.settings.locale.tr", "Turkish") : item === "en-US" ? t("ui.settings.locale.en", "English") : item}
+                  {item === "tr-TR" ? "Türkçe" : item === "en-US" ? "English" : item}
                 </Text>
                 {active ? <MaterialCommunityIcons name="check-circle" size={14} color={colors.onAccent} /> : null}
               </Pressable>
@@ -61,13 +61,13 @@ export function SettingsScreen({ t }: BaseScreenProps) {
         </View>
 
         <ExperienceInfoRow
-          title={t("ui.settings.pref_ambient", "Ambient Weather Effects")}
-          subtitle={t("ui.settings.pref_ambient_detail", "Rain / sun visual mood layers on major cards")}
+          title={t("ui.settings.pref_ambient", "Ambient Weather Layers")}
+          subtitle={t("ui.settings.pref_ambient_detail", "Visual atmosphere follows current conditions on key cards")}
           icon="weather-rainy"
         />
         <ExperienceInfoRow
-          title={t("ui.settings.pref_compact", "Compact Timeline Rows")}
-          subtitle={t("ui.settings.pref_compact_detail", "Tighter timeline cards for denser data scanning")}
+          title={t("ui.settings.pref_compact", "Readable Timeline Density")}
+          subtitle={t("ui.settings.pref_compact_detail", "Balanced card rhythm for fast scanning across hourly/daily/weekly views")}
           icon="view-compact-outline"
         />
       </View>
@@ -107,8 +107,8 @@ function ExperienceInfoRow({
 }
 
 function localeDisplayName(locale: string, t: (key: string, fallback?: string) => string): string {
-  if (locale === "tr-TR") return `Türkçe / ${t("ui.settings.locale.tr", "Turkish")}`;
-  if (locale === "en-US") return `English / ${t("ui.settings.locale.en", "English")}`;
+  if (locale === "tr-TR") return "Türkçe";
+  if (locale === "en-US") return t("ui.settings.locale.en", "English");
   return locale;
 }
 
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     borderColor: "#416B91",
     borderWidth: 1,
     backgroundColor: colors.darkPanel,
-    padding: spacing.md,
+    padding: spacing.sm,
     gap: spacing.xs,
     ...shadow.floating,
   },
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     borderColor: "#375C80",
     borderWidth: 1,
     backgroundColor: "#112E45",
-    padding: spacing.md,
+    padding: spacing.sm,
     gap: spacing.sm,
     ...shadow.card,
   },
@@ -242,9 +242,9 @@ const styles = StyleSheet.create({
     borderRadius: radius.sm,
     borderColor: "#3B6186",
     borderWidth: 1,
-    backgroundColor: "#183652",
+    backgroundColor: "#17344D",
     paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.xs,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -270,8 +270,8 @@ const styles = StyleSheet.create({
     borderColor: "#5E86AB",
     borderWidth: 1,
     backgroundColor: "#214969",
-    width: 28,
-    height: 28,
+    width: 26,
+    height: 26,
     alignItems: "center",
     justifyContent: "center",
   },
